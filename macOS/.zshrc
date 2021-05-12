@@ -50,7 +50,7 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 
 # alias to sublime 
 # terminal 下 "subl ./xxx" 可以直接用 sublime 開啟檔案
-alias subl="'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'"
+alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 # ------- END -------
 
