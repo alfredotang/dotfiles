@@ -13,10 +13,11 @@
    ```bash
    curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/.zshrc > ~/.zshrc
    ```
-4. Install useful key bindings and fuzzy completion by [fzf](https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew)  
+4. Copy `.p10k.zsh` file to home directory
    ```bash
-   $(brew --prefix)/opt/fzf/install
+   curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/.p10k.zsh > ~/.p10k.zsh
    ```
+
 5. Reload Zsh configuration  
    ```bash
    zsh
