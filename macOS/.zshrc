@@ -58,7 +58,5 @@ alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 # | other setting |
 #  ---------------
 
-# fzf  source
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ------- END -------
