@@ -90,13 +90,15 @@ len=${#install_step[*]}
 
 
 # ================= main function ========================
-for step in ${!install_step[@]}; do
-    try
-    (
-        ${install_step[$step]} `expr $step + 1`
-    )
-    cache || {
-        error "Error" SIGTERM SIGINT SIGHUP
-    }
+try
+(
+    for step in ${!install_step[@]}; do
     
-done
+        ${install_step[$step]} `expr $step + 1`
+   
+    
+    done
+)
+cache || {
+    error "Error" SIGTERM SIGINT SIGHUP
+}
