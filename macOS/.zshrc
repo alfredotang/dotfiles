@@ -56,6 +56,10 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 # terminal 下 "subl ./xxx" 可以直接用 sublime 開啟檔案
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
+alias cdd="cd ~/desktop"
+alias cdw="cd ~/downloads"
+alias ezsh="vim ~/.zshrc"
+alias egit="vim ~/.gitconfig"
 # ------- END -------
 
 
