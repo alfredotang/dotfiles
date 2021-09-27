@@ -12,23 +12,23 @@ COLOR_NONE="\033[0m"
 # ========= utilites function ===========
 
 function print_out {
-    echo -e "\n${COLOR_BLUE}info ${COLOR_NONE}canel"
+    printf "\n${COLOR_BLUE}info ${COLOR_NONE}canel\n"
     exit
 }
 
 function success {
-    echo -e "\n ${COLOR_GREEN}success ${COLOR_NONE}$1"
+    printf "\n ${COLOR_GREEN}success ${COLOR_NONE}$1\n"
 }
 
 function error {
-    echo -e "\n${COLOR_RED}error ${COLOR_NONE}$1"
+    printf "\n${COLOR_RED}error ${COLOR_NONE}$1\n"
     exit
 }
 
 
 function print_step {
-    echo -e "\n${COLOR_PURPLE}step $1/$len  ${COLOR_YELLOW}$2"
-    echo -e "${COLOR_GRAY}=====================================${COLOR_NONE}"
+    printf "\n${COLOR_PURPLE}step $1/$len  ${COLOR_YELLOW}$2"
+    printf "\n${COLOR_GRAY}=====================================${COLOR_NONE}\n"
 }
 
 # ctrl + c 後 執行
