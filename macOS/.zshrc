@@ -43,6 +43,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # ------- END -------
 
+#  ---------------
+# |   variables   |
+#  ---------------
+DEFAULT_BROWSER="Google Chrome"
+
+# ------- END -------
 
 #  ---------------
 # | alias setting |
@@ -56,10 +62,26 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 # terminal 下 "subl ./xxx" 可以直接用 sublime 開啟檔案
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
+# Change Directory
 alias cdd="cd ~/desktop"
 alias cdw="cd ~/downloads"
+
+# edit configs
 alias ezsh="vim ~/.zshrc"
 alias egit="vim ~/.gitconfig"
+alias evim="vim ~/.vimrc"
+alias ehost="vim /etc/hosts"
+alias ls="exa --icons"
+
+# open browser
+alias chrome='open -a "Google Chrome"'
+alias brave='open -a "Brave Browser"'
+alias chromeDev='chrome http://localhost:3000/'
+alias chromeDevs='chrome https://localhost:3000/'
+alias braveDev='brave http://localhost:3000/'
+alias braveDevs='brave https://localhost:3000/'
+alias defaultBrowserOpen='open -a $DEFAULT_BROWSER'
+alias ghme='defaultBrowserOpen https://github.com/'
 # ------- END -------
 
 
