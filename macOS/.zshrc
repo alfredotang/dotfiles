@@ -10,6 +10,9 @@ export TERM='xterm-256color'
 # zsh 的插件管理工具
 source /usr/local/share/antigen/antigen.zsh
 
+# Disable Homebrew Auto update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 #  -----------------
 # | antigen setting |
 #  -----------------
