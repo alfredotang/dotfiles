@@ -32,6 +32,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 # zsh syntax highlight
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# zsh vim
+antigen bundle jeffreytse/zsh-vi-mode
+
 # 套用 antigen 設定
 antigen apply
 
