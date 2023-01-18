@@ -31,12 +31,11 @@ function print_step {
     printf "\n${COLOR_GRAY}=====================================${COLOR_NONE}\n"
 }
 
-# ctrl + c 後 執行
 trap print_out SIGTERM SIGINT SIGHUP
 
 # ========= install step function ===================
 
-# 安裝 homebrew
+# Install homebrew
 function install_homebrew {
     title="Install Homebrew"
     print_step $1 "$title"
@@ -45,7 +44,7 @@ function install_homebrew {
     success "$title"
 }
 
-# 使用 homebrew 安裝 app
+# Install APP by homebrew
 function install_homebrew_dependencies {
     title="Install Homebrew dependencies"
     print_step $1 "$title"
@@ -56,7 +55,7 @@ function install_homebrew_dependencies {
     success "$title"
 }
 
-# 設定 zsh 
+# Setting zsh 
 function configuare_zsh {
     title="configuare zsh"
     print_step $1 "$title"
@@ -64,7 +63,7 @@ function configuare_zsh {
     success "$title"
 }
 
-# 設定 zsh thme - powerlevel10k
+# Setting zsh theme by powerlevel10k
 function configuare_powerlevel10k {
     title="configuare powerlevel10k"
     print_step $1 "$title"
@@ -73,7 +72,7 @@ function configuare_powerlevel10k {
     success "$title"
 }
 
-# 將 zsh 設為 預設 shell
+# Setup zsh to deafault shell
 function setup_default_use_zsh {
     title="setup default use zsh"
     print_step $1 "$title"
@@ -83,7 +82,6 @@ function setup_default_use_zsh {
     success "$title"
 }
 
-# 安裝 步驟
 install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh")
 
 len=${#install_step[*]}
