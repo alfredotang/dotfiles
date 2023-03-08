@@ -94,7 +94,21 @@ function disable_macos_press_and_hold {
     success "$title"
 }
 
-install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh" "disable_macos_press_and_hold")
+# setting git global config
+function setting_git_global_config {
+    title="setting git global config"
+    print_step $1 "$title"
+    git config --global alias.co checkout
+    git config --global alias.br branch
+    git config --global alias.cm "commit -m"
+    git config --global alias.st status
+    git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+    git config --global core.ignorecase false
+
+    success "$title"
+}
+
+install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh" "disable_macos_press_and_hold" "setting_git_global_config")
 
 
 # ================= main function ========================
