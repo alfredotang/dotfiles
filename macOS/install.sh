@@ -60,6 +60,7 @@ function configuare_zsh {
     title="configuare zsh"
     print_step $1 "$title"
     curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/.zshrc > ~/.zshrc
+
     success "$title"
 }
 
@@ -82,21 +83,25 @@ function setup_default_use_zsh {
     success "$title"
 }
 
-install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh")
+# To enable global key-repeat
+# If you're using vim's j k l h as your cursor movement keys
+# not having this setting enabled could be problematic when navigating.
+function disable_macos_press_and_hold {
+    title="enable global key-repeat"
+    print_step $1 "$title"
+    defaults write -g ApplePressAndHoldEnabled -bool false
 
-len=${#install_step[*]}
+    success "$title"
+}
+
+install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh" "disable_macos_press_and_hold")
 
 
 # ================= main function ========================
-try
-(
+{
     for step in ${!install_step[@]}; do
-    
         ${install_step[$step]} `expr $step + 1`
-   
-    
     done
-)
-cache || {
+} || {
     error "Error" SIGTERM SIGINT SIGHUP
 }
