@@ -108,13 +108,23 @@ function setting_git_global_config {
     success "$title"
 }
 
-install_step=("install_homebrew" "install_homebrew_dependencies" "configuare_zsh" "configuare_powerlevel10k" "setup_default_use_zsh" "disable_macos_press_and_hold" "setting_git_global_config")
+install_steps=(
+    "install_homebrew" 
+    "install_homebrew_dependencies" 
+    "configuare_zsh" 
+    "configuare_powerlevel10k" 
+    "setup_default_use_zsh" 
+    "disable_macos_press_and_hold" 
+    "setting_git_global_config"
+)
+
+len=${#install_steps[*]}
 
 
 # ================= main function ========================
 {
-    for step in ${!install_step[@]}; do
-        ${install_step[$step]} `expr $step + 1`
+    for step in ${!install_steps[@]}; do
+        ${install_steps[$step]} `expr $step + 1`
     done
 } || {
     error "Error" SIGTERM SIGINT SIGHUP
