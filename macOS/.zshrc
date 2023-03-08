@@ -13,6 +13,7 @@ source /usr/local/share/antigen/antigen.zsh
 # Disable Homebrew Auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+
 #  -----------------
 # | antigen setting |
 #  -----------------
@@ -33,20 +34,25 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # zsh vim
-antigen bundle jeffreytse/zsh-vi-mode
+# antigen bundle jeffreytse/zsh-vi-mode
 
 # 套用 antigen 設定
 antigen apply
 
 # ------- END -------
 
+#  ---------------
+# | zsh vim config |
+#  ---------------
+
+
+# ------- END -------
 
 #  ---------------
 # | theme setting |
 #  ---------------
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # ------- END -------
 
 #  ---------------
@@ -68,26 +74,68 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 # terminal 下 "subl ./xxx" 可以直接用 sublime 開啟檔案
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
+alias pn="pnpm"
+
 # Change Directory
 alias cdd="cd ~/desktop"
 alias cdw="cd ~/downloads"
+alias cdp="cd ~/desktop/projects"
 
 # edit configs
 alias ezsh="vim ~/.zshrc"
 alias egit="vim ~/.gitconfig"
-alias evim="vim ~/.vimrc"
+alias evim="vim ~/.config/nvim"
 alias ehost="vim /etc/hosts"
+alias czsh="code ~/.zshrc"
+alias cgit="code ~/.gitconfig"
+alias cvim="sudo code ~/.config/nvim"
+alias chost="code /etc/hosts"
 alias ls="exa --icons"
 
 # open browser
-alias chrome='open -a "Google Chrome"'
-alias brave='open -a "Brave Browser"'
-alias chromeDev='chrome http://localhost:3000/'
-alias chromeDevs='chrome https://localhost:3000/'
-alias braveDev='brave http://localhost:3000/'
-alias braveDevs='brave https://localhost:3000/'
 alias defaultBrowserOpen='open -a $DEFAULT_BROWSER'
 alias ghme='defaultBrowserOpen https://github.com/'
+
+# git
+alias gitcp='git branch --show-current | pbcopy'
+
+git_fzf_checkout() {
+ git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
+
+alias gitco="git_fzf_checkout"
+
+git_fzf_remove() {
+ git branch -D $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
+
+
+alias gitrm="git_fzf_remove"
+
+
+git_push_upstream () {
+  git push --set-upstream origin $(git branch --show-current)
+}
+
+alias gitpu="git_push_upstream"
+
+git_stash_fzf() {
+  stash_list=$(git stash list)
+  selected_stash=$(echo "$stash_list" | fzf --reverse)
+  if [ -z "$selected_stash" ]; then
+    echo "No stash selected"
+    exit 1
+  fi
+  stash_index=$(echo "$selected_stash" | awk '{print $1}' | tr -d ':')
+  git stash apply $stash_index 
+}
+
+alias gitsh="git_stash_fzf"
+
+
+# vim
+alias vim="nvim"
+
 # ------- END -------
 
 
@@ -95,5 +143,8 @@ alias ghme='defaultBrowserOpen https://github.com/'
 # | other setting |
 #  ---------------
 
-
 # ------- END -------
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
