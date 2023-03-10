@@ -39,6 +39,7 @@ cask "fork"
 cask "setapp"
 cask "rectangle"
 cask "obsidian"
+cask "raycast"
 mas "LINE", id: 539883307
 mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
