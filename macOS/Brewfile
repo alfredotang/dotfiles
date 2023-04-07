@@ -40,6 +40,7 @@ cask "obsidian"
 cask "raycast"
 cask "zappy"
 cask "dozer"
+cask "cleanmymac"
 mas "LINE", id: 539883307
 mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
