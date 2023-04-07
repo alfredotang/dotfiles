@@ -41,6 +41,7 @@ cask "raycast"
 cask "zappy"
 cask "dozer"
 cask "cleanmymac"
+cask "figma"
 mas "LINE", id: 539883307
 mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
