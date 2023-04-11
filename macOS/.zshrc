@@ -97,7 +97,7 @@ alias defaultBrowserOpen='open -a $DEFAULT_BROWSER'
 alias ghme='defaultBrowserOpen https://github.com/'
 
 # git
-alias gitcp='git branch --show-current | pbcopy'
+alias gitcp='echo -n `git branch --show-current` | pbcopy'
 
 git_fzf_checkout() {
  git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
