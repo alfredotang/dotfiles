@@ -1,12 +1,16 @@
 # dotFiles
 ![alfredo-iTern-demo](./images/alfredo-iTern-demo.png)
 ## macOS
-### 1. `install.sh`
+### 1. install homebrew
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+### 2. install configuration `install.sh`
    
    ```
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/install.sh)"
    ```
-### 2. Setting `iTerm` font family
+### 3. Setting `iTerm` font family
 
 
    open iTerm and press
@@ -19,7 +23,7 @@
    ```
 ![setting-iTerm-font](./images/setting-iTern-font.png)
 
-### 3. Setting `VSCode` font family
+### 4. Setting `VSCode` font family
 
    open **VSCode** and press
 

@@ -109,7 +109,7 @@ function setting_git_global_config {
 }
 
 install_steps=(
-    "install_homebrew" 
+    # "install_homebrew"
     "install_homebrew_dependencies" 
     "configuare_zsh" 
     "configuare_powerlevel10k" 
