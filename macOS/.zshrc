@@ -8,7 +8,7 @@ export TERM='xterm-256color'
 
 # 載入 antigen
 # zsh 的插件管理工具
-source /usr/local/share/antigen/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
 
 # Disable Homebrew Auto update
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -79,17 +79,13 @@ alias pn="pnpm"
 # Change Directory
 alias cdd="cd ~/desktop"
 alias cdw="cd ~/downloads"
-alias cdp="cd ~/desktop/projects"
+alias cdp="cd ~/desktop/documents/projects"
 
 # edit configs
-alias ezsh="vim ~/.zshrc"
-alias egit="vim ~/.gitconfig"
-alias evim="vim ~/.config/nvim"
-alias ehost="vim /etc/hosts"
-alias czsh="code ~/.zshrc"
-alias cgit="code ~/.gitconfig"
-alias cvim="sudo code ~/.config/nvim"
-alias chost="code /etc/hosts"
+alias ezsh="sudo code ~/.zshrc"
+alias egit="sudo code ~/.gitconfig"
+alias evim="sudo code ~/.config/nvim"
+alias ehost="sudo code /etc/hosts"
 alias ls="exa --icons"
 
 # open browser
