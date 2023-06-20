@@ -37,12 +37,12 @@ cask "visual-studio-code"
 cask "sublime-text"
 cask "fork"
 cask "rectangle"
-cask "obsidian"
 cask "raycast"
 cask "figma"
 cask "setapp"
 cask "gitkraken"
 cask "warp"
+cask "logseq"
 mas "LINE", id: 539883307
 mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
