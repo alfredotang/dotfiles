@@ -93,27 +93,27 @@ alias defaultBrowserOpen='open -a $DEFAULT_BROWSER'
 alias ghme='defaultBrowserOpen https://github.com/'
 
 # git
-alias gitcp='echo -n `git branch --show-current` | pbcopy'
+alias gcp='echo -n `git branch --show-current` | pbcopy'
 
 git_fzf_checkout() {
  git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
 }
 
-alias gitco="git_fzf_checkout"
+alias gco="git_fzf_checkout"
 
 git_fzf_remove() {
  git branch -D $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
 }
 
 
-alias gitrm="git_fzf_remove"
+alias grm="git_fzf_remove"
 
 
 git_push_upstream () {
   git push --set-upstream origin $(git branch --show-current)
 }
 
-alias gitpu="git_push_upstream"
+alias gpu="git_push_upstream"
 
 git_stash_fzf() {
   stash_list=$(git stash list)
@@ -126,7 +126,7 @@ git_stash_fzf() {
   git stash apply $stash_index 
 }
 
-alias gitsh="git_stash_fzf"
+alias gsh="git_stash_fzf"
 
 
 # vim
