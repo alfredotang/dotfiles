@@ -39,9 +39,10 @@ cask "gitkraken"
 cask "warp"
 cask "logseq"
 cask "notion-calendar"
+cask "discord"
+cask "zed"
+cask "microsoft-edge"
 mas "LINE", id: 539883307
-mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
-mas "CleanMyMac X", id: 1339170533
 mas "Yoink", id: 457622435
