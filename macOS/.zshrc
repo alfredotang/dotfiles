@@ -3,11 +3,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Terminal 中的 Report terminal type 改為 xterm-256color 
+# Turn Report terminal type to xterm-256color 
 export TERM='xterm-256color'
 
-# 載入 antigen
-# zsh 的插件管理工具
+# Load the antigen
 source /opt/homebrew/share/antigen/antigen.zsh
 
 # Disable Homebrew Auto update
@@ -33,10 +32,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 # zsh syntax highlight
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# zsh vim
-# antigen bundle jeffreytse/zsh-vi-mode
 
-# 套用 antigen 設定
+# Apply antigen setting
 antigen apply
 
 # ------- END -------
@@ -58,7 +55,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #  ---------------
 # |   variables   |
 #  ---------------
-DEFAULT_BROWSER="Google Chrome"
+
 
 # ------- END -------
 
@@ -67,18 +64,17 @@ DEFAULT_BROWSER="Google Chrome"
 #  ---------------
 
 # alias to vscode
-# terminal 下 "code ./xxx" 可以直接用 vscode 開啟檔案  
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 
 # alias to sublime 
-# terminal 下 "subl ./xxx" 可以直接用 sublime 開啟檔案
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 alias pn="pnpm"
 
-# Change Directory
+# Directory 
 alias cdd="cd ~/desktop"
 alias cdw="cd ~/downloads"
+alias cdoc="cd ~/desktop/documents"
 alias cdp="cd ~/desktop/documents/projects"
 
 # edit configs
@@ -87,10 +83,7 @@ alias egit="sudo code ~/.gitconfig"
 alias evim="sudo code ~/.config/nvim"
 alias ehost="sudo code /etc/hosts"
 alias ls="exa --icons"
-
-# open browser
-alias defaultBrowserOpen='open -a $DEFAULT_BROWSER'
-alias ghme='defaultBrowserOpen https://github.com/'
+alias cd="z"
 
 # git
 alias gcp='echo -n `git branch --show-current` | pbcopy'
