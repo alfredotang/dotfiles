@@ -38,6 +38,7 @@ cask "figma"
 cask "gitkraken"
 cask "warp"
 cask "logseq"
+cask "notion-calendar"
 mas "LINE", id: 539883307
 mas "Messenger", id: 1480068668
 mas "Slack", id: 803453959
