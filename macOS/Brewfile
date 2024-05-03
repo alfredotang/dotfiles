@@ -4,6 +4,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "homebrew/cask-fonts"
 brew "mas"
 brew "node"
 brew "antigen"
@@ -44,6 +45,7 @@ cask "notion-calendar"
 cask "discord"
 cask "zed"
 cask "microsoft-edge"
+cask "font-jetbrains-mono"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
