@@ -83,9 +83,11 @@ alias egit="sudo code ~/.gitconfig"
 alias evim="sudo code ~/.config/nvim"
 alias ehost="sudo code /etc/hosts"
 alias ls="exa --icons"
-alias cd="z"
+
 
 # git
+alias g="git"
+alias gui="gitui"
 alias gcp='echo -n `git branch --show-current` | pbcopy'
 
 git_fzf_checkout() {
