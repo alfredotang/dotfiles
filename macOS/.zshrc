@@ -82,7 +82,7 @@ alias ezsh="sudo code ~/.zshrc"
 alias egit="sudo code ~/.gitconfig"
 alias evim="sudo code ~/.config/nvim"
 alias ehost="sudo code /etc/hosts"
-
+alias ls="lsd"
 
 # git
 alias g="git"
