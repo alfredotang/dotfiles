@@ -74,15 +74,14 @@ alias pn="pnpm"
 # Directory 
 alias cdd="cd ~/desktop"
 alias cdw="cd ~/downloads"
-alias cdoc="cd ~/desktop/documents"
-alias cdp="cd ~/desktop/documents/projects"
+alias cdoc="cd ~/documents"
+alias cdp="cd ~/documents/projects"
 
 # edit configs
 alias ezsh="sudo code ~/.zshrc"
 alias egit="sudo code ~/.gitconfig"
 alias evim="sudo code ~/.config/nvim"
 alias ehost="sudo code /etc/hosts"
-alias ls="exa --icons"
 
 
 # git
