@@ -8,7 +8,7 @@
 ### 2. install configuration `install.sh`
    
    ```
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/install.sh)"
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/macOS/install.sh)"
    ```
 ### 3. Setting `iTerm` font family
 
