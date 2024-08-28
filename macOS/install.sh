@@ -48,7 +48,7 @@ function install_homebrew {
 function install_homebrew_dependencies {
     title="Install Homebrew dependencies"
     print_step $1 "$title"
-    curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/Brewfile > /tmp/Brewfile  
+    curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/macOS/Brewfile > /tmp/Brewfile  
     brew bundle --file /tmp/Brewfile  
     rm /tmp/Brewfile
 
