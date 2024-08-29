@@ -48,8 +48,11 @@ cask "microsoft-edge"
 cask "font-jetbrains-mono"
 cask "shottr"
 cask "bartender"
+cask "monitorcontrol"
+cask "chatgpt"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
 mas "Yoink", id: 457622435
 mas "TrashMe 3", id: 1490879410
+mas "Unsplash Wallpapers", id: 1284863847
