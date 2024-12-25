@@ -71,11 +71,15 @@ alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 alias pn="pnpm"
 
-# Directory 
-alias cdd="cd ~/desktop"
-alias cdw="cd ~/downloads"
-alias cdoc="cd ~/documents"
-alias cdp="cd ~/documents/projects"
+# Change Directory
+alias cdt="cd ~/desktop"
+alias cdd="cd ~/downloads"
+alias cdp="cd ~/Documents/projects"
+alias cdpp="cd ~/Documents/projects/afu-playground"
+alias cdoc="cd ~/Documents"
+alias dad="rm -rf ~/downloads/*" 
+# Working Directory
+alias cdw="cd ~/Documents/projects/gmi"
 
 # edit configs
 alias ezsh="sudo code ~/.zshrc"
@@ -121,6 +125,19 @@ git_stash_fzf() {
 }
 
 alias gsh="git_stash_fzf"
+
+git_stash_rm_fzf() {
+  stash_list=$(git stash list)
+  selected_stash=$(echo "$stash_list" | fzf --reverse)
+  if [ -z "$selected_stash" ]; then
+    echo "No stash selected"
+    exit 1
+  fi
+  stash_index=$(echo "$selected_stash" | awk '{print $1}' | tr -d ':')
+  git stash drop $stash_index 
+}
+
+alias gshrm="git_stash_rm_fzf"
 
 
 # vim
