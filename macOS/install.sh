@@ -92,6 +92,15 @@ function disable_macos_press_and_hold {
 	success "$title"
 }
 
+# Setting tmux
+function configure_tmux {
+	title="configure tmux"
+	print_step $1 "$title"
+	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/tmux/.tmux.conf >~/.tmux.conf
+
+	success "$title"
+}
+
 # setting git global config
 function setting_git_global_config {
 	title="setting git global config"
@@ -118,6 +127,7 @@ install_steps=(
 	"setup_default_use_zsh"
 	"disable_macos_press_and_hold"
 	"setting_git_global_config"
+	"configure_tmux"
 )
 
 len=${#install_steps[*]}

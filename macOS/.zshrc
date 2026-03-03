@@ -88,11 +88,31 @@ alias dad="rm -rf ~/downloads/*"
 alias cdw="cd ~/Documents/projects/gmi"
 
 # edit configs
-alias ezsh="sudo code ~/.zshrc"
-alias egit="sudo code ~/.gitconfig"
-alias evim="sudo code ~/.config/nvim"
-alias ehost="sudo code /etc/hosts"
+alias ezsh="zed ~/.zshrc"
+alias egit="zed ~/.gitconfig"
+alias evim="zed ~/.config/nvim"
+alias ehost="zed /etc/hosts"
 alias ls="lsd"
+
+# claude code
+alias cc="claude"
+
+# zed
+ZED_ALLOW_ROOT=true
+
+# tmux
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tn="tmux new -s"
+alias tls="tmux ls"
+alias tk="tmux kill-session -t"
+alias tka="tmux kill-server"
+alias ts="tmux_session_select"
+tmux_session_select() {
+  local session
+  session=$(tmux ls 2>/dev/null | fzf --select-1 --exit-0 | cut -d: -f1)
+  [ -n "$session" ] && tmux attach -t "$session"
+}
 
 # git
 alias g="git"
