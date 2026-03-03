@@ -107,12 +107,13 @@ alias tn="tmux new -s"
 alias tls="tmux ls"
 alias tk="tmux kill-session -t"
 alias tka="tmux kill-server"
-alias ts="tmux_session_select"
-tmux_session_select() {
+alias tco="tmux_checkout"
+tmux_checkout() {
   local session
   session=$(tmux ls 2>/dev/null | fzf --select-1 --exit-0 | cut -d: -f1)
   [ -n "$session" ] && tmux attach -t "$session"
 }
+
 
 # git
 alias g="git"
