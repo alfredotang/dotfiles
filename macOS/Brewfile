@@ -39,7 +39,7 @@ cask "figma"
 cask "shottr"
 cask "monitorcontrol"
 cask "bitwarden"
-cask "hiddenbar"
+cask "bartender"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
