@@ -114,6 +114,7 @@ function setting_git_global_config {
 	git config --global alias.ps "push"
 	git config --global alias.pl "pull"
 	git config --global alias.rb "rebase"
+	git config --global alias.sh "stash"
 	git config --global core.ignorecase false
 	git config --global user.email "asdzxcca0617@gmail.com"
 	git config --global user.name "Alfredo Tang"
