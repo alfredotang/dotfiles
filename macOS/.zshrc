@@ -64,13 +64,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #  ---------------
 
 # alias to vscode
-alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 
 # claude code
 alias cc="claude"
 
 # cursor code
-alias code='/Applications/Cursor.app/Contents/Resources/app/bin/code'
+alias cursor='/Applications/Cursor.app/Contents/Resources/app/bin/code'
 
 # alias to sublime
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
@@ -88,10 +88,11 @@ alias dad="rm -rf ~/downloads/*"
 alias cdw="cd ~/Documents/projects/gmi"
 
 # edit configs
-alias ezsh="zed ~/.zshrc"
-alias egit="zed ~/.gitconfig"
-alias evim="zed ~/.config/nvim"
-alias ehost="zed /etc/hosts"
+alias main_edit="code"
+alias ezsh="main_edit ~/.zshrc"
+alias egit="main_edit ~/.gitconfig"
+alias evim="main_edit ~/.config/nvim"
+alias ehost="main_edit /etc/hosts"
 alias ls="lsd"
 
 # claude code
@@ -120,14 +121,43 @@ alias g="git"
 alias gui="gitui"
 alias gcp='echo -n `git branch --show-current` | pbcopy'
 
+
+_git_fzf_select_branch() {
+    local current_branch all_branches display selected
+
+    current_branch=$(git branch --show-current)
+    all_branches=$(git for-each-ref refs/heads/ --format='%(refname:short)')
+
+    display=$(echo "$all_branches" | while read -r branch; do
+      if [[ "$branch" == "$current_branch" ]]; then
+        echo "$branch *"
+      else
+        echo "$branch"
+      fi
+    done)
+
+    selected=$(echo "$display" | fzf)
+    selected=$(echo "$selected" | awk '{print $1}')
+
+    if [[ -z "$selected" ]]; then
+      return 1
+    fi
+
+    echo "$selected"
+}
+
 git_fzf_checkout() {
- git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+    local branch
+    branch=$(_git_fzf_select_branch) || return
+    git checkout "$branch"
 }
 
 alias gco="git_fzf_checkout"
 
 git_fzf_remove() {
- git branch -D $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+    local branch
+    branch=$(_git_fzf_select_branch) || return
+    git branch -D "$branch"
 }
 
 
@@ -207,6 +237,47 @@ git_copy_branch_name_and_commit() {
   local final_message=$(_git_format_commit_message "$1")
   git commit -m "$final_message" "$@"
 }
+
+
+# github
+alias ghsw="gh_switch_account"
+gh_switch_account() {
+    local all_accounts active
+
+    all_accounts=$(gh auth status 2>&1 \
+      | awk '/Logged in to github\.com account/ {print $7}')
+
+    active=$(gh auth status 2>&1 | awk '
+      /Logged in to github\.com account/ { username = $7 }
+      /Active account: true/ { print username }
+    ')
+
+    if [[ -z "$all_accounts" ]]; then
+      echo "No GitHub accounts found."
+      return 1
+    fi
+
+    local display selected
+    display=$(echo "$all_accounts" | while read -r acc; do
+      if [[ "$acc" == "$active" ]]; then
+        echo "$acc *"
+      else
+        echo "$acc"
+      fi
+    done)
+
+    selected=$(echo "$display" | fzf)
+    selected=$(echo "$selected" | awk '{print $NF}' | tr -d '()')
+
+    if [[ -z "$selected" ]]; then
+      return 0
+    elif [[ "$selected" == "$active" ]]; then
+      echo "Already on: $active"
+    else
+      gh auth switch --user "$selected"
+    fi
+}
+
 
 # ------- END -------
 
