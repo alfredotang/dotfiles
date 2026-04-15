@@ -111,6 +111,9 @@ function setting_git_global_config {
 	git config --global alias.st status
 	git config --global alias.hist "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 	git config --global alias.fa "fetch --all --prune"
+	git config --global alias.ps "push"
+	git config --global alias.pl "pull"
+	git config --global alias.rb "rebase"
 	git config --global core.ignorecase false
 	git config --global user.email "asdzxcca0617@gmail.com"
 	git config --global user.name "Alfredo Tang"
