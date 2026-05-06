@@ -76,6 +76,7 @@ alias cursor='/Applications/Cursor.app/Contents/Resources/app/bin/code'
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 alias pn="pnpm"
+alias b="bun"
 
 # Change Directory
 alias cdt="cd ~/desktop"
