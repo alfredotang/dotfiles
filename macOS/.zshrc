@@ -171,6 +171,12 @@ git_push_upstream () {
 
 alias gpu="git_push_upstream"
 
+git_commit_timestamp() {
+  git commit -m "feat: $(date '+%Y-%m-%d %H:%M:%S')"
+}
+
+alias gct="git_commit_timestamp"
+
 git_stash_fzf() {
   stash_list=$(git stash list)
   selected_stash=$(echo "$stash_list" | fzf --reverse)
@@ -231,12 +237,6 @@ git_copy_branch_name() {
   # Convert kebab-case message_body to nocase (all lowercase, replace '-' and '_' with spaces)
   local nocase_message_body=$(echo "$message_body" | tr '[:upper:]' '[:lower:]' | sed -e 's/[-_]/ /g')
   printf "%s" "$nocase_message_body" | pbcopy
-}
-
-alias gcmn="git_copy_branch_name_and_commit"
-git_copy_branch_name_and_commit() {
-  local final_message=$(_git_format_commit_message "$1")
-  git commit -m "$final_message" "$@"
 }
 
 
