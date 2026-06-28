@@ -23,9 +23,6 @@ antigen use oh-my-zsh
 # zsh theme
 antigen theme romkatv/powerlevel10k
 
-# nvm
-antigen bundle lukechilds/zsh-nvm
-
 # zsh auto suggestions
 antigen bundle zsh-users/zsh-autosuggestions
 
@@ -48,7 +45,8 @@ antigen apply
 #  ---------------
 # | theme setting |
 #  ---------------
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # ------- END -------
 
@@ -70,7 +68,7 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 alias cc="claude"
 
 # cursor code
-alias cursor='/Applications/Cursor.app/Contents/Resources/app/bin/code'
+alias cs='/Applications/Cursor.app/Contents/Resources/app/bin/code'
 
 # alias to sublime
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
@@ -91,6 +89,7 @@ alias cdw="cd ~/Documents/projects/gmi"
 # edit configs
 alias main_edit="code"
 alias ezsh="main_edit ~/.zshrc"
+alias ezshenv="main_edit ~/.zshenv"
 alias egit="main_edit ~/.gitconfig"
 alias evim="main_edit ~/.config/nvim"
 alias ehost="main_edit /etc/hosts"
@@ -288,6 +287,3 @@ gh_switch_account() {
 #  ---------------
 
 # ------- END -------
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

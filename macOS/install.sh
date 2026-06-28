@@ -34,14 +34,6 @@ trap print_out SIGTERM SIGINT SIGHUP
 
 # ========= install step function ===================
 
-# Install homebrew
-function install_homebrew {
-	title="Install Homebrew"
-	print_step $1 "$title"
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-	success "$title"
-}
 
 # Install APP by homebrew
 function install_homebrew_dependencies {
@@ -58,28 +50,13 @@ function install_homebrew_dependencies {
 function configuare_zsh {
 	title="configuare zsh"
 	print_step $1 "$title"
-	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/.zshrc >~/.zshrc
-
-	success "$title"
-}
-
-# Setting zsh theme by powerlevel10k
-function configuare_powerlevel10k {
-	title="configuare powerlevel10k"
-	print_step $1 "$title"
-	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/master/macOS/.p10k.zsh >~/.p10k.zsh
-
-	success "$title"
-}
-
-# Setup zsh to deafault shell
-function setup_default_use_zsh {
-	title="setup default use zsh"
-	print_step $1 "$title"
+	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/macOS/.p10k.zsh >~/.p10k.zsh
+	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/macOS/.zshrc >~/.zshrc
 	hsh -s /bin/zsh
 
 	success "$title"
 }
+
 
 # To enable global key-repeat
 # If you're using vim's j k l h as your cursor movement keys
@@ -105,30 +82,14 @@ function configure_tmux {
 function setting_git_global_config {
 	title="setting git global config"
 	print_step $1 "$title"
-	git config --global alias.co checkout
-	git config --global alias.br branch
-	git config --global alias.cm "commit -m"
-	git config --global alias.st status
-	git config --global alias.hist "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-	git config --global alias.fa "fetch --all --prune"
-	git config --global alias.ps "push"
-	git config --global alias.pl "pull"
-	git config --global alias.rb "rebase"
-	git config --global alias.sh "stash"
-	git config --global core.ignorecase false
-	git config --global user.email "asdzxcca0617@gmail.com"
-	git config --global user.name "Alfredo Tang"
-	git config --global init.defaultBranch main
+	curl -fsSL https://raw.githubusercontent.com/alfredotang/dotfiles/main/git/.gitconfig >~/.gitconfig
 
 	success "$title"
 }
 
 install_steps=(
-	# "install_homebrew"
 	"install_homebrew_dependencies"
 	"configuare_zsh"
-	"configuare_powerlevel10k"
-	"setup_default_use_zsh"
 	"disable_macos_press_and_hold"
 	"setting_git_global_config"
 	"configure_tmux"

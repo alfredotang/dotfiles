@@ -1,0 +1,18 @@
+[alias]
+        co = checkout
+        br = branch
+        cm = commit -m
+        st = status
+        hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        fa = fetch --all --prune
+        rb = rebase
+        ps = push
+        pl = pull
+        sh = stash
+[core]
+        ignorecase = false
+[user]
+        email = asdzxcca0617@gmail.com
+        name = Alfredo Tang
+[init]
+        defaultBranch = main
