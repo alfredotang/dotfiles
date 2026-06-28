@@ -42,7 +42,7 @@ cask "figma"
 cask "shottr"
 cask "monitorcontrol"
 cask "bitwarden"
-cask "bartender"
+cask "jordanbaird-ice"
 cask "zennotes/tap/zennotes"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
