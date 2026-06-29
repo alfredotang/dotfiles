@@ -89,6 +89,11 @@ function configure_gitconfig {
 function configure_neovim {
   title="configure neovim"
   print_step $1 "$title"
+  [ -e ~/.config/nvim ] && mv ~/.config/nvim ~/.config/nvim.bak
+  [ -e ~/.local/share/nvim ] && mv ~/.local/share/nvim ~/.local/share/nvim.bak
+  [ -e ~/.local/state/nvim ] && mv ~/.local/state/nvim ~/.local/state/nvim.bak
+  [ -e ~/.cache/nvim ] && mv ~/.cache/nvim ~/.cache/nvim.bak
+
   ln -sf "$PATH_DOTFILES/nvim" ~/.config/nvim
 
   success "$title"

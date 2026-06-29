@@ -77,6 +77,10 @@ eval "$(zoxide init zsh)"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# alias to nvim
+alias vim="nvim"
+
 # alias to vscode
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 # claude code
@@ -111,7 +115,7 @@ alias cdw="cd ~/Documents/projects/gmi"
 # edit configs
 alias main_edit="code"
 alias ezsh="main_edit ~/.zshrc"
-alias ezshenv="main_edit ~/.zshenv"
+alias ezshl="main_edit ~/.zshrc.local"
 alias egit="main_edit ~/.gitconfig"
 alias evim="main_edit ~/.config/nvim"
 alias ehost="main_edit /etc/hosts"
