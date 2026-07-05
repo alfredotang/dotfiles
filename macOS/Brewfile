@@ -44,6 +44,7 @@ cask "monitorcontrol"
 cask "bitwarden"
 cask "jordanbaird-ice"
 cask "zennotes/tap/zennotes"
+cask "keyboardcleantool"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
