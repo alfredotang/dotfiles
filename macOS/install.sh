@@ -95,7 +95,7 @@ function configure_gitconfig {
 function configure_tmux {
   title="configure tmux"
   print_step $1 "$title"
-  place tmux/.tmux.conf ~/.tmux.conf
+  place macOS/.tmux.conf ~/.tmux.conf
 
   success "$title"
 }
