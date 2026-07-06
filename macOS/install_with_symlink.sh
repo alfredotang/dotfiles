@@ -99,6 +99,16 @@ function configure_neovim {
   success "$title"
 }
 
+# Setting ghostty
+function configure_ghostty {
+  title="configure ghostty"
+  print_step $1 "$title"
+  ln -sf "$PATH_DOTFILES/macOS/config.ghostty" ~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
+
+
+  success "$title"
+}
+
 
 # To enable global key-repeat
 # If you're using vim's j k l h as your cursor movement keys
@@ -127,6 +137,7 @@ install_steps=(
   "configure_gitconfig"
   "configure_tmux"
   "configure_neovim"
+  "configure_ghostty"
   "disable_macos_press_and_hold"
 )
 
