@@ -103,8 +103,10 @@ function configure_neovim {
 function configure_ghostty {
   title="configure ghostty"
   print_step $1 "$title"
-  ln -sf "$PATH_DOTFILES/macOS/config.ghostty" ~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
+  [-e ~/Library/Application\ Support/com.mitchellh.ghostty/config] && mv ~/Library/Application\ Support/com.mitchellh.ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config.bak
+  [-e ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty] && mv ~/Library/Application\ Support/com.mitchellh.ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty.bak
 
+  ln -sf "$PATH_DOTFILES/macOS/config.ghostty" ~/Library/Application\ Support/com.mitchellh.ghostty/config.ghostty
 
   success "$title"
 }
