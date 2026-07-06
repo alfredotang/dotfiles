@@ -132,6 +132,20 @@ function configure_ghostty {
   success "$title"
 }
 
+# Setting zed
+function configure_zed {
+  title="configure zed"
+  print_step $1 "$title"
+  mkdir -p ~/.config/zed
+  [ -e ~/.config/zed/settings.json ] && mv ~/.config/zed/settings.json ~/.config/zed/settings.json.bak
+  [ -e ~/.config/zed/keymap.json ] && mv ~/.config/zed/keymap.json ~/.config/zed/keymap.json.bak
+
+  place zed/settings.json ~/.config/zed/settings.json
+  place zed/keymap.json ~/.config/zed/keymap.json
+
+  success "$title"
+}
+
 # To enable global key-repeat
 # If you're using vim's j k l h as your cursor movement keys
 # not having this setting enabled could be problematic when navigating.
@@ -152,6 +166,7 @@ install_steps+=(
   "configure_tmux"
   "configure_neovim"
   "configure_ghostty"
+  "configure_zed"
   "disable_macos_press_and_hold"
 )
 

@@ -1,0 +1,185 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "sidebar_side": "left",
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "bypassPermissions",
+      },
+      "type": "registry",
+    },
+  },
+  "edit_predictions": {
+    "copilot": {
+      "enable_next_edit_suggestions": true,
+    },
+    "provider": "copilot",
+    "mode": "subtle",
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 1.0,
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true,
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_project_items": true,
+    "show_branch_name": true,
+  },
+  "debugger": {
+    "button": false,
+  },
+  "search": {
+    "button": true,
+  },
+  "diagnostics": {
+    "button": true,
+    // "inline": {
+    //   "enabled": true,
+    // },
+  },
+  "status_bar": {
+    "cursor_position_button": false,
+    "active_language_button": true,
+  },
+  "collaboration_panel": {
+    "dock": "right",
+    "button": true,
+  },
+  "git_panel": {
+    "tree_view": true,
+    "status_style": "icon",
+    "dock": "right",
+    "sort_by_path": false,
+    "collapse_untracked_diff": false,
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+  },
+  "scrollbar": {
+    "show": "always",
+    "diagnostics": "all",
+    "axes": {
+      "vertical": false,
+      "horizontal": false,
+    },
+  },
+  "terminal": {
+    "button": false,
+    "font_family": "Hack Nerd Font",
+  },
+  "buffer_line_height": "comfortable",
+  "buffer_font_weight": 400.0,
+  "buffer_font_family": "JetBrains Mono",
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true,
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "project_panel": {
+    "indent_guides": {
+      "show": "never",
+    },
+    "indent_size": 14.0,
+    "file_icons": true,
+    "folder_icons": true,
+    "entry_spacing": "comfortable",
+    "button": true,
+    "default_width": 240.0,
+    "auto_fold_dirs": false,
+    "scrollbar": {
+      "show": "auto",
+    },
+    "show_diagnostics": "all",
+    "sticky_scroll": false,
+    "sort_mode": "directories_first",
+    "git_status": true,
+    "dock": "right",
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": false,
+    "use_system_clipboard": "always",
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 14.0,
+  "ui_font_family": "JetBrains Mono",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Ayu Dark",
+  },
+  "languages": {
+    "JavaScript": {
+      "tab_size": 2,
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+    "TSX": {
+      "tab_size": 2,
+      "code_actions_on_format": {
+        "source.fix.eslint": true,
+      },
+    },
+    "TypeScript": {
+      "tab_size": 2,
+      "code_actions_on_format": {
+        "source.fix.eslint": true,
+      },
+    },
+    "JSON": {
+      "tab_size": 2,
+    },
+    "YAML": {
+      "tab_size": 2,
+    },
+  },
+  "formatter": ["prettier"],
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cva", "cx", "cn"],
+        "experimental": {
+          "classRegex": ["[cls|className]\\s\\:\\=\\s\"([^\"]*)"],
+        },
+      },
+    },
+  },
+}
