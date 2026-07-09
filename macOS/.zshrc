@@ -315,11 +315,3 @@ gh_switch_account() {
 #  ---------------
 # | other setting |
 #  ---------------
-
-
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/alfredotang/Library/Application Support/Herd/config/php/84/"
-
-
-# Herd injected PHP binary.
-export PATH="/Users/alfredotang/Library/Application Support/Herd/bin/":$PATH
