@@ -125,6 +125,7 @@ alias egit="main_edit ~/.gitconfig"
 alias evim="main_edit ~/.config/nvim"
 alias ehost="main_edit /etc/hosts"
 alias ls="lsd"
+alias cpob="echo '~/Documents/obsidian' | pbcopy"
 
 # claude code
 alias cc="claude"
