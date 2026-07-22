@@ -67,7 +67,6 @@
     "tree_view": true,
     "status_style": "icon",
     "dock": "right",
-    "sort_by_path": false,
     "collapse_untracked_diff": false,
   },
   "toolbar": {
@@ -81,6 +80,9 @@
       "horizontal": false,
     },
   },
+  "tabs": {
+    "show_diagnostics": "all",
+  },
   "terminal": {
     "button": false,
     "font_family": "Hack Nerd Font",
@@ -91,7 +93,7 @@
   "code_actions_on_format": {
     "source.fixAll.eslint": true,
   },
-  "format_on_save":"on",
+  "format_on_save": "on",
   "icon_theme": {
     "mode": "light",
     "light": "Material Icon Theme",
