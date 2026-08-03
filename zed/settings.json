@@ -18,6 +18,12 @@
     "model_parameters": [],
   },
   "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "mode": "agent-full-access"
+      },
+      "type": "registry"
+    },
     "claude-acp": {
       "default_config_options": {
         "mode": "bypassPermissions",
