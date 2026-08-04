@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "proxy": "",
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
     "dock": "right",
@@ -20,9 +21,9 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
-        "mode": "agent-full-access"
+        "mode": "agent-full-access",
       },
-      "type": "registry"
+      "type": "registry",
     },
     "claude-acp": {
       "default_config_options": {
@@ -32,6 +33,9 @@
     },
   },
   "edit_predictions": {
+    "open_ai_compatible_api": {
+      "model": "",
+    },
     "copilot": {
       "enable_next_edit_suggestions": true,
     },
@@ -79,10 +83,8 @@
     "breadcrumbs": true,
   },
   "scrollbar": {
-    "show": "always",
-    "diagnostics": "all",
     "axes": {
-      "vertical": false,
+      "vertical": true,
       "horizontal": false,
     },
   },
