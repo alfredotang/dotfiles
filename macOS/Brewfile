@@ -28,14 +28,12 @@ cask "google-chrome"
 cask "brave-browser"
 cask "arc"
 cask "ghostty"
-cask "warp"
 cask "visual-studio-code"
 cask "sublime-text"
 cask "zed"
 cask "fork"
 cask "notion"
 cask "notion-calendar"
-cask "insomnia"
 cask "spotify"
 cask "discord"
 cask "rectangle"
@@ -45,12 +43,11 @@ cask "shottr"
 cask "monitorcontrol"
 cask "bitwarden"
 cask "jordanbaird-ice"
-cask "zennotes/tap/zennotes"
 cask "keyboardcleantool"
 cake "obsidian"
+cask "bruno"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
 mas "Yoink", id: 457622435
-mas "TrashMe 3", id: 1490879410
 mas "Unsplash Wallpapers", id: 1284863847
