@@ -108,12 +108,12 @@
     "dark": "Material Icon Theme",
   },
   "project_panel": {
+    "folder_indicator": "icon",
     "indent_guides": {
       "show": "never",
     },
     "indent_size": 14.0,
     "file_icons": true,
-    "folder_icons": true,
     "entry_spacing": "comfortable",
     "button": true,
     "default_width": 240.0,
