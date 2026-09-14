@@ -46,6 +46,7 @@ cask "jordanbaird-ice"
 cask "keyboardcleantool"
 cake "obsidian"
 cask "bruno"
+cask "zennotes/tap/zennotes"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
