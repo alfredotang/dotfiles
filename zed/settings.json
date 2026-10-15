@@ -13,7 +13,9 @@
     "dock": "right",
   },
   "agent": {
-    "sidebar_side": "left",
+    "threads_sidebar": {
+      "position": "left",
+    },
     "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
@@ -193,4 +195,17 @@
       },
     },
   },
+  "file_scan_exclusions": [
+    "**/.next",
+    "**/.nx",
+    "**/.turbo",
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/coverage",
+    "**/playwright-report",
+    "**/test-results",
+    "**/storybook-static",
+    "**/*.tsbuildinfo",
+  ],
 }
