@@ -44,7 +44,6 @@ cask "monitorcontrol"
 cask "bitwarden"
 cask "jordanbaird-ice"
 cask "keyboardcleantool"
-cake "obsidian"
 cask "bruno"
 cask "zennotes/tap/zennotes"
 mas "LINE", id: 539883307
