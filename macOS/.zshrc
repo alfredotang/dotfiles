@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Re-sourcing breaks p10k/antigen; turn `source ~/.zshrc` into a fresh shell instead.
+[[ -n $_ZSHRC_LOADED && -o interactive ]] && exec zsh
+_ZSHRC_LOADED=1
+
 # p10k config source
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -54,7 +58,6 @@ antigen apply
 #  ---------------
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
 # ------- END -------
 
 #  ---------------
@@ -95,8 +98,6 @@ alias cs='/Applications/Cursor.app/Contents/Resources/app/bin/code'
 # alias to sublime
 alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
-# zoxide
-eval "$(zoxide init zsh)"
 
 # ------- END -------
 
@@ -127,8 +128,6 @@ alias ehost="main_edit /etc/hosts"
 alias ls="lsd"
 alias cpn="echo '~/Documents/zen-notes' | pbcopy"
 
-# claude code
-alias cc="claude"
 
 # zed
 ZED_ALLOW_ROOT=true
