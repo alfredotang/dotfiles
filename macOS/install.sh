@@ -74,7 +74,6 @@ function clone_dotfiles_repo {
 function configure_zsh {
   title="configure zsh"
   print_step $1 "$title"
-  place macOS/.p10k.zsh ~/.p10k.zsh
   place macOS/.zshrc ~/.zshrc
   touch ~/.zshrc.local
   chsh -s /bin/zsh

@@ -1,13 +1,8 @@
 #!/bin/bash
 
-# Re-sourcing breaks p10k/antigen; turn `source ~/.zshrc` into a fresh shell instead.
+# Re-sourcing breaks antigen; turn `source ~/.zshrc` into a fresh shell instead.
 [[ -n $_ZSHRC_LOADED && -o interactive ]] && exec zsh
 _ZSHRC_LOADED=1
-
-# p10k config source
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # nvm
   export NVM_DIR="$HOME/.nvm"
@@ -32,7 +27,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 antigen use oh-my-zsh
 
 # zsh theme
-antigen theme romkatv/powerlevel10k
+antigen theme robbyrussell
 
 # zsh auto suggestions
 antigen bundle zsh-users/zsh-autosuggestions
@@ -51,13 +46,6 @@ antigen apply
 #  ------------------
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# ------- END -------
-
-#  ---------------
-# | theme setting |
-#  ---------------
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # ------- END -------
 
 #  ---------------
