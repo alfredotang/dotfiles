@@ -1,0 +1,21 @@
+# Warp-style two-line prompt: path + git on top, input on the bottom
+add_newline = true
+format = "$directory$git_branch$git_status$line_break$character"
+
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "bold purple"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "bold yellow"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"

@@ -81,6 +81,16 @@ function configure_zsh {
   success "$title"
 }
 
+# Setting starship prompt
+function configure_starship {
+  title="configure starship"
+  print_step $1 "$title"
+  mkdir -p ~/.config
+  place macOS/starship.toml ~/.config/starship.toml
+
+  success "$title"
+}
+
 # setting git global config
 function configure_gitconfig {
   title="configure gitconfig"
@@ -161,6 +171,7 @@ install_steps=("install_homebrew_dependencies")
 [ "$USE_SYMLINK" = 1 ] && install_steps+=("clone_dotfiles_repo")
 install_steps+=(
   "configure_zsh"
+  "configure_starship"
   "configure_gitconfig"
   "configure_tmux"
   "configure_neovim"

@@ -26,9 +26,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # oh my zsh
 antigen use oh-my-zsh
 
-# zsh theme
-antigen theme robbyrussell
-
 # zsh auto suggestions
 antigen bundle zsh-users/zsh-autosuggestions
 
@@ -39,10 +36,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Apply antigen setting
 antigen apply
 
-# Robbyrussell two-line prompt (must come after antigen apply to override the theme)
-ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)
-%{$fg[green]%}❯%{$reset_color%} '
+# starship prompt (config: ~/.config/starship.toml)
+eval "$(starship init zsh)"
 
 # ------- END -------
 
