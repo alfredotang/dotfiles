@@ -136,6 +136,7 @@ tmux_checkout() {
 # git
 alias g="git"
 alias gui="gitui"
+alias lg="lazygit"
 alias gcp='echo -n `git branch --show-current` | pbcopy'
 
 

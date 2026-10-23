@@ -207,5 +207,6 @@
     "**/test-results",
     "**/storybook-static",
     "**/*.tsbuildinfo",
+    "**/packages/swagger/bruno/*.yml",
   ],
 }

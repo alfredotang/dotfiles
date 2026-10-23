@@ -13,6 +13,7 @@ brew "lsd"
 brew "neovim"
 brew "tree-sitter-cli" # nvim-treesitter (main branch) needs the CLI to build parsers
 brew "gitui"
+brew "lazygit"
 brew "bat"
 brew "docker"
 brew "lazydocker"
