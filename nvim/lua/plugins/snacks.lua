@@ -20,8 +20,7 @@ return {
           ignored = true,
         },
       },
-      -- 避免被這些目錄洗版
-      exclude = { ".git", "node_modules", ".DS_Store" },
+      exclude = { ".git", "node_modules", ".DS_Store", "**/packages/swagger/bruno/**/*.yml", "**/.next" },
     },
   },
 }

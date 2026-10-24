@@ -1,8 +1,10 @@
 # theme = "solarized Dark Higher Contrast"
 # theme = "Night Owl"
 # theme = "iTerm2 Tango Dark"
-theme = "GitHub Dark"
-font-size = 16
+# theme = "GitHub Dark"
+theme = "Ayu"
+font-size = 14
+adjust-cell-height = 20%
 font-family = "JetBrains Mono"
 # font-family = "Hack Nerd Font"
 # background-blur = true
