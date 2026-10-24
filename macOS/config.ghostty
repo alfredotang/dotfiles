@@ -6,7 +6,7 @@ font-size = 16
 font-family = "JetBrains Mono"
 # font-family = "Hack Nerd Font"
 # background-blur = true
-background-opacity = 0.8
+background-opacity = 0.95
 background-blur = macos-glass-clear
 macos-titlebar-style = transparent
 keybind = shift+enter=text:\n
