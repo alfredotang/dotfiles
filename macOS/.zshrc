@@ -98,7 +98,6 @@ alias b="bun"
 alias cdt="cd ~/desktop"
 alias cdd="cd ~/downloads"
 alias cdp="cd ~/Documents/projects"
-alias cdpp="cd ~/Documents/projects/afu-playground"
 alias cdoc="cd ~/Documents"
 alias dad="rm -rf ~/downloads/*"
 # Working Directory
