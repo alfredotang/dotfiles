@@ -1,12 +1,22 @@
 return {
   {
-    "Mofiqul/vscode.nvim",
+    "Shatur/neovim-ayu",
+    main = "ayu",
     lazy = false,
     priority = 1000,
-    opts = { transparent = true },
+    opts = {
+      mirage = false, -- true = ayu-mirage; light: ayu-light
+      -- keep the old transparent background
+      overrides = {
+        Normal = { bg = "None" },
+        NormalNC = { bg = "None" },
+        SignColumn = { bg = "None" },
+        EndOfBuffer = { bg = "None" },
+      },
+    },
   },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "vscode" },
+    opts = { colorscheme = "ayu-dark" },
   },
 }
