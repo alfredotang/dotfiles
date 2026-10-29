@@ -18,6 +18,7 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
+          layout = { layout = { position = "right" } },
         },
       },
       exclude = { ".git", "node_modules", ".DS_Store", "**/packages/swagger/bruno/**/*.yml", "**/.next" },
