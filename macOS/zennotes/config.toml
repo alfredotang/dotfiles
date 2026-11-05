@@ -1,0 +1,544 @@
+# ZenNotes configuration
+# Docs: https://github.com/ZenNotes/zennotes
+#
+# Holds your portable preferences (theme, editor, vim, keymaps, …) so you can
+# sync them across machines with git, stow, chezmoi, and friends. Managed by
+# ZenNotes but safe to hand-edit: changes apply live, no restart needed.
+#
+# Every available option is listed below with its current value; the inline
+# comment shows the allowed values. Edit a value to customize it. ZenNotes
+# keeps this list complete, so a removed option reappears with its default.
+# Tables and keys the desktop app does not use, like zn's [terminal], stay as
+# they are. Other comments you add may be dropped when the app rewrites the file.
+
+config_version = 1
+
+[vim]
+enabled = true  # true | false: CodeMirror Vim bindings
+insert_escape = ""  # key sequence to leave insert mode, e.g. "jk"; empty disables
+yank_to_clipboard = true  # sync the system clipboard with Vim yank/delete/change and p/P paste
+block_ime_in_normal_mode = true  # keep the OS input method (a CJK IME) from composing in normal and visual mode, so hjkl stay motions
+wrapped_line_motions = "display"  # display | logical: how $, I, A and dependent operators treat soft-wrapped lines
+which_key_hints = true  # show the leader-key hint overlay (Vim only)
+which_key_hint_mode = "sticky"  # timed | sticky
+which_key_hint_timeout_ms = 900  # how long timed hints stay visible (ms)
+
+[search]
+backend = "fzf"  # auto | builtin | ripgrep | fzf
+ripgrep_path = ""  # absolute path to ripgrep; empty = look on $PATH
+fzf_path = ""  # absolute path to fzf; empty = look on $PATH
+tagged_blocks = true  # with a #tag in Search notes, list the tagged blocks under each note
+
+[editor]
+live_preview = true  # hide markdown syntax on inactive lines
+show_heading_level_labels = false  # show H1 through H6 badges before headings
+render_tables = true  # render tables as widgets in live preview; off keeps them as plain text
+detect_code_languages = true  # guess the language of a code block that names none, and highlight it; never written to the note
+sync_title_heading_on_rename = true  # renaming a note rewrites its leading '# heading' to match
+markdown_snippets = true  # auto-close markdown delimiters while typing
+text_replacements_enabled = true  # expand configured text triggers while typing
+auto_pairs = true  # auto-insert matching [] () and {} while typing
+auto_pair_quotes_in_prose = false  # also auto-insert matching quotes outside Markdown code
+hide_builtin_templates = false  # hide the shipped templates from the pickers
+tabs_enabled = true  # enable tab-based editing
+wrap_tabs = false  # wrap the tab strip instead of scrolling it
+font_size = 14  # editor + preview font size (px)
+math_font_scale = 100  # math size as a percentage (50-200); scales $…$ and $$…$$ in editor and preview
+line_height = 1.7  # line-height multiplier
+tab_size = 4  # tab width in columns, from 1 through 8
+list_indent_guides = true  # vertical guide lines at each nested list level
+link_popover_on_hover = true  # resting the pointer on a [[wikilink]] opens the link popover
+scroll_off = 0  # vim scrolloff: lines kept above/below the cursor (0 = off)
+time_format = "12h"  # clock format for the @time macro (12h or 24h)
+preview_max_width = 920  # max reading width for the preview (px)
+editor_max_width = 920  # max width of the editor column (px)
+completed_task_style = "none"  # none | strikethrough | gray | gray-strikethrough: style checked-task text
+math_renderer = "katex"  # katex | typst: typesetter for $…$ / $$…$$ math
+typst_tag_preambles = false  # true | false: prepend Typst definitions from notes in a `typst` folder, chosen by a note's tags
+harper_enabled = false  # true | false: grammar and spelling with Harper, checked on this device
+harper_dialect = "american"  # american | british | australian | canadian | indian
+loose_math_delimiters = false  # render $$…$$ display math even with text before/after the fences
+default_view_mode = "edit"  # edit | split | preview: the mode a note opens in before it has a remembered one
+keep_view_mode_across_notes = false  # true = stay in the current Edit / Split / Preview mode when opening another note; false = each note reopens in its own last mode
+persist_undo_history = false  # true = keep each note's undo history between launches, like Vim's undofile (stored with the app, never in the vault; holds deleted text; desktop only)
+line_number_mode = "off"  # off | absolute | relative
+line_number_position = "text"  # text | edge
+word_wrap = true  # wrap long lines vs. scroll horizontally
+preview_smooth_scroll = true  # animate half-page scroll in the preview
+pdf_embed_in_edit_mode = "compact"  # compact | full
+external_application_schemes = []  # application links enabled for opening, e.g. ["zotero", "obsidian", "vscode"]
+ignored_keys = []  # keys the app ignores entirely, by DOM key or code, e.g. ["KanaMode"] for the no-op a Kanata/QMK tap-hold layer sends with every keystroke
+
+[appearance]
+pdf_export_use_theme = false  # true | false: export PDFs using the current theme instead of a clean light print theme
+theme_family = "apple"  # apple | gruvbox | catppuccin | github | solarized | one | nord | tokyo-night | kanagawa | black-metal | custom
+theme_mode = "dark"  # light | dark | auto
+theme_id = "apple-dark"  # resolved theme id; normally set automatically from family + mode
+dark_sidebar = true  # tint the sidebar darker than the canvas
+show_window_title_bar = true  # show the main window title bar and window controls
+show_status_bar = true  # show the bar along the bottom; while hidden it still appears when Cloud needs you
+show_sidebar_chevrons = true  # show disclosure arrows in the sidebar
+content_align = "center"  # center | left
+note_cover_placement = "scroll"  # scroll | pinned | hidden: where a note cover image sits
+unified_sidebar = true  # merge the note list into the sidebar tree
+
+[typography]
+interface_font = ""  # app chrome font; empty = system default
+text_font = ""  # editor + preview font; empty = system default
+mono_font = ""  # code / monospace font; empty = system default
+
+[view]
+atlas_enabled = true  # the Atlas map view of the vault (sidebar row, command, Space g); on by default
+workflows_enabled = false  # opt in to the Workflows view, its sidebar row, command, and leader shortcut (off by default)
+workflow_event_triggers = true  # let active workflows with "trigger: on <event>" run on this device when you save, create, move or tag a note (on by default; needs workflows_enabled)
+asset_sort_order = "name-asc"  # Assets view sort: name | used | type | size | modified, each -asc or -desc
+note_sort_order = "created-desc"  # none | manual | updated-desc | updated-asc | created-desc | created-asc | name-asc | name-desc
+group_by_kind = true  # group notes by kind in the list
+nested_tags = true  # show /-separated tags as a collapsible tree (sidebar + Tags view)
+view_settings_scope = "global"  # apply note/list view settings globally or per vault (global | vault)
+auto_reveal = false  # auto-expand the sidebar to the active note
+quick_note_date_title = true  # title quick notes by date instead of a timestamp
+quick_note_title_prefix = ""  # prefix for new quick-note titles; empty = bare timestamp
+auto_calendar_panel = true  # auto-show the calendar for daily / weekly notes
+keep_panels_across_notes = true  # true = Connections / Outline / Comments / Calendar / Timeline stay as set while you switch notes; false = each note remembers its own panels (saved with the workspace, so they survive a restart)
+calendar_week_start = "monday"  # monday | sunday | locale
+calendar_show_week_numbers = true  # show ISO week numbers in the calendar
+tasks_view_mode = "kanban"  # list | calendar | kanban
+show_archived_tasks = false  # keep tasks from archived notes in the Tasks views
+kanban_group_by = "status"  # status | priority | folder (each note's own folder; see kanban_folder_root) | field:<key>
+kanban_card_sort = "manual"  # manual | due: cards in a Kanban column keep the order you drag them into, or follow their due dates
+kanban_lanes = "none"  # none | priority | folder | tag | field:<key>: a second field that splits the Kanban board into lanes
+hide_empty_tasks = true  # leave blank checkboxes out of the Tasks views, the Calendar and Timeline panels and the home view
+task_reminders = true  # true | false: notify for tasks with @remind (#1036)
+task_reminder_time = "09:00"  # HH:MM: when @remind:1d and other reminders without a time fire
+tasks_list_order = "note"  # note | priority: each Tasks list group keeps its notes' line order, or puts high priority first
+timeline_range = "two-weeks"  # two-weeks | month | all: how far ahead the Timeline panel reaches; overdue tasks always show
+gallery_sort = "updated"  # updated | created | title: the order of a folder Gallery's cards (newest first for the dates)
+gallery_include_subfolders = false  # a folder Gallery also shows the notes in its subfolders
+kanban_folder_root = ""  # folder board: group by the children of this folder, e.g. "Projects" (deeper notes roll up, notes outside it share one column); "" = each note's own folder
+kanban_statuses = []  # custom-status Kanban columns in order, e.g. ["backlog", "in_progress", "review", "done"]
+hidden_workflow_presets = []  # built-in workflow recipe ids hidden from the gallery, e.g. ["reading-log"]
+
+[mcp]
+review_agent_edits = true  # keep what a note said before an assistant edits it through MCP, so you can review the change
+
+[privacy]
+usage_count = true  # send an anonymous count when ZenNotes installs or updates: version, OS, architecture, install kind; no identifier
+
+# Keymap overrides. Add or uncomment "<action.id>" = "<binding>" lines.
+# Binding syntax: "Mod+P" = Cmd/Ctrl+P, "Shift+Mod+K", "Ctrl+W", "Space",
+# or a two-key sequence like "g g". Uncomment a reference line to remap it.
+# An empty binding ("") removes the key entirely: nothing triggers that
+# action until you give it a key again or delete the line.
+[keymaps]
+"global.focusPaneLeft" = "Ctrl+H"
+"global.focusPaneDown" = "Ctrl+J"
+"global.focusPaneUp" = "Ctrl+K"
+"global.focusPaneRight" = "Ctrl+L"
+"vim.tabPrevious" = "H"
+"vim.tabNext" = "L"
+
+# --- All actions (defaults shown; uncomment + edit to override) ---
+# A "(macOS: ...)" note marks an action whose Mac default differs.
+# Global
+# "global.searchNotes" = "Mod+P"  # Search notes
+# "global.searchNotesNonVim" = "Mod+F"  # Search notes in non-Vim mode
+# "global.commandPalette" = "Shift+Mod+P"  # Open command palette
+# "global.newQuickNote" = "Shift+Mod+N"  # New quick note
+# "global.newNoteHere" = "Mod+N"  # New note in current folder
+# "global.newNoteFromTemplate" = ""  # New note from template (macOS: "Alt+Mod+T")
+# "global.insertTemplate" = ""  # Insert template into current note
+# "global.openSettings" = "Mod+,"  # Open settings
+# "global.openFile" = "Mod+O"  # Open file
+# "global.toggleSidebar" = "Mod+1"  # Toggle sidebar
+# "global.toggleConnections" = "Mod+2"  # Toggle connections panel
+# "global.toggleOutlinePanel" = "Mod+3"  # Toggle outline panel
+# "global.toggleCommentsPanel" = "Shift+Mod+C"  # Toggle comments panel
+# "global.toggleTimelinePanel" = "Mod+7"  # Toggle timeline panel
+# "global.addComment" = "Alt+Mod+M"  # Add comment to selection
+# "global.modeEdit" = "Mod+4"  # Switch to editor mode
+# "global.modeSplit" = "Mod+5"  # Switch to split mode
+# "global.modePreview" = "Mod+6"  # Switch to preview mode
+# "global.toggleZenMode" = "Mod+."  # Toggle Zen mode
+# "global.closeActiveTab" = "Mod+W"  # Close active tab
+# "global.reopenClosedTab" = "Shift+Mod+T"  # Reopen closed tab
+# "global.toggleWordWrap" = "Alt+Z"  # Toggle word wrap
+# "global.exportNotePdf" = "Shift+Mod+E"  # Export note as PDF
+# "global.zoomIn" = "Mod+="  # Zoom in
+# "global.zoomOut" = "Mod+-"  # Zoom out
+# "global.zoomReset" = "Mod+0"  # Reset zoom
+# "global.historyBack" = "Alt+ArrowLeft"  # Go back in note history
+# "global.historyForward" = "Alt+ArrowRight"  # Go forward in note history
+# "global.toggleRecentNote" = "Mod+Tab"  # Switch to previous note (macOS: "Ctrl+Tab")
+# "tabs.select1" = "Alt+1"  # Go to tab 1 (macOS: "Ctrl+1")
+# "tabs.select2" = "Alt+2"  # Go to tab 2 (macOS: "Ctrl+2")
+# "tabs.select3" = "Alt+3"  # Go to tab 3 (macOS: "Ctrl+3")
+# "tabs.select4" = "Alt+4"  # Go to tab 4 (macOS: "Ctrl+4")
+# "tabs.select5" = "Alt+5"  # Go to tab 5 (macOS: "Ctrl+5")
+# "tabs.select6" = "Alt+6"  # Go to tab 6 (macOS: "Ctrl+6")
+# "tabs.select7" = "Alt+7"  # Go to tab 7 (macOS: "Ctrl+7")
+# "tabs.select8" = "Alt+8"  # Go to tab 8 (macOS: "Ctrl+8")
+# "tabs.select9" = "Alt+9"  # Go to tab 9 (macOS: "Ctrl+9")
+# "tabs.next" = "Mod+PageDown"  # Next tab (macOS: "Alt+Mod+ArrowRight")
+# "tabs.previous" = "Mod+PageUp"  # Previous tab (macOS: "Alt+Mod+ArrowLeft")
+# Vim
+# "vim.leaderPrefix" = "Space"  # Leader key
+# "vim.leaderOpenBuffers" = "o"  # Leader: open buffers
+# "vim.leaderCloudConflicts" = "r"  # Leader: review Cloud conflicts
+# "vim.leaderWorkflows" = "a"  # Leader: open workflows
+# "vim.leaderImport" = "I"  # Leader: import notes
+# "vim.leaderAtlas" = "g"  # Leader: open atlas
+# "vim.leaderSearchNotes" = "f"  # Leader: search notes
+# "vim.leaderSearchGroup" = "s"  # Leader: search…
+# "vim.leaderSearchVaultText" = "t"  # Leader search: vault text
+# "vim.leaderToggleSidebar" = "e"  # Leader: toggle sidebar
+# "vim.leaderNoteOutline" = "p"  # Leader: note outline
+# "vim.leaderSwitchVault" = "v"  # Leader: switch vault
+# "vim.leaderOpenVaultFolder" = "F"  # Leader: open vault in file manager
+# "vim.leaderNoteActions" = "l"  # Leader: note actions
+# "vim.leaderFormatNote" = "f"  # Leader note action: format note
+# "vim.leaderCopyMarkdown" = "y"  # Leader note action: copy note as Markdown
+# "vim.leaderToggleFavorite" = "s"  # Leader note action: toggle favorite
+# "vim.leaderTableToDatabase" = "d"  # Leader note action: convert table to database
+# "vim.leaderNoteCover" = "c"  # Leader note action: cover image
+# "vim.leaderNoteCoverUnsplash" = "u"  # Leader note action: cover from Unsplash
+# "vim.leaderCalloutType" = "a"  # Leader note action: callout type
+# "vim.leaderCodeLanguage" = "l"  # Leader note action: code block language
+# "vim.leaderQuickCapture" = "q"  # Leader: open quick capture
+# "vim.leaderHideToTray" = "b"  # Leader: hide window to tray
+# "vim.leaderTemplatePicker" = "t"  # Leader: new from template
+# "vim.leaderInsertTemplate" = "i"  # Leader: insert template into note
+# "vim.leaderDailyNote" = "d"  # Leader: today's daily note
+# "vim.leaderWeeklyNote" = "w"  # Leader: this week's note
+# "vim.leaderMonthlyNote" = "m"  # Leader: this month's note
+# "vim.leaderCalendar" = "c"  # Leader: toggle calendar
+# "vim.leaderTimeline" = "n"  # Leader: toggle timeline
+# "vim.leaderUnresolvedLinks" = "u"  # Leader: unresolved links
+# "vim.leaderFolderGallery" = "G"  # Leader: folder gallery
+# "vim.leaderNewKanban" = "k"  # Leader: new Kanban
+# "vim.panePrefix" = "Ctrl+W"  # Pane command prefix
+# "vim.paneFocusLeft" = "h"  # Pane: focus left
+# "vim.paneFocusDown" = "j"  # Pane: focus down
+# "vim.paneFocusUp" = "k"  # Pane: focus up
+# "vim.paneFocusRight" = "l"  # Pane: focus right
+# "vim.paneSplitRight" = "v"  # Pane: split right
+# "vim.paneSplitDown" = "s"  # Pane: split down
+# "vim.historyBack" = "Ctrl+O"  # Go back in note history
+# "vim.historyForward" = "Ctrl+I"  # Go forward in note history
+# "vim.bufferPrevious" = "[ b"  # Previous buffer
+# "vim.bufferNext" = "] b"  # Next buffer
+# "vim.hintMode" = "h"  # Leader: hint mode
+# "vim.goToDefinition" = "g d"  # Follow link at cursor
+# "vim.createNoteFromLink" = "g D"  # Create note for link at cursor
+# "vim.linkPopover" = "K"  # Link popover for link at cursor
+# "vim.foldCurrent" = "z c"  # Fold heading or list item at cursor
+# "vim.unfoldCurrent" = "z o"  # Unfold heading or list item at cursor
+# "vim.foldAll" = "z M"  # Fold all headings and lists
+# "vim.unfoldAll" = "z R"  # Unfold all headings and lists
+# "vim.harperNext" = "] s"  # Next Harper suggestion
+# "vim.harperPrevious" = "[ s"  # Previous Harper suggestion
+# "vim.harperSuggest" = "z ="  # Harper suggestions at cursor
+# "vim.harperAddWord" = "z g"  # Add word to Harper dictionary
+# "vim.harperIgnore" = "z G"  # Ignore Harper suggestion
+# "vim.reviewNextChange" = "] c"  # Next change to review
+# "vim.reviewPreviousChange" = "[ c"  # Previous change to review
+# "vim.reviewAcceptChange" = "d p"  # Accept change
+# "vim.reviewRejectChange" = "d o"  # Reject change
+# Navigation
+# "nav.moveDown" = "j"  # Move selection down
+# "nav.moveUp" = "k"  # Move selection up
+# "nav.moveLeft" = "h"  # Move selection left
+# "nav.moveRight" = "l"  # Move selection right
+# "nav.jumpTop" = "g g"  # Jump to top
+# "nav.jumpBottom" = "G"  # Jump to bottom
+# "nav.openSideItem" = "l"  # Open sidebar or note-list item
+# "nav.openResult" = "o"  # Open result
+# "nav.back" = "h"  # Back out
+# "nav.toggleFolder" = "o"  # Toggle folder
+# "nav.filter" = "/"  # Focus filter or search
+# View actions
+# "nav.halfPageDown" = "Ctrl+D"  # Half-page down
+# "nav.halfPageUp" = "Ctrl+U"  # Half-page up
+# "nav.contextMenu" = "m"  # Open context menu
+# "nav.peekPreview" = "p"  # Peek preview
+# "nav.restore" = "r"  # Restore trashed note
+# "nav.delete" = "x"  # Delete selected result
+# "nav.sidebarTrash" = "Mod+Backspace"  # Move sidebar note to Trash
+# "nav.toggleTask" = "x"  # Toggle task
+# "tasks.moveTaskUp" = "K"  # Move task up
+# "tasks.moveTaskDown" = "J"  # Move task down
+# "tasks.savedFilters" = "F"  # Pick a saved Tasks filter
+# "tags.nextNote" = "}"  # Next note in Tags view
+# "tags.previousNote" = "{"  # Previous note in Tags view
+# "editor.hopMarkerForward" = "Alt+]"  # Hop past next marker (macOS: "Ctrl+.")
+# "editor.hopMarkerBackward" = "Alt+["  # Hop before previous marker (macOS: "Ctrl+,")
+# "editor.foldHeading" = "Alt+Mod+F"  # Fold heading or list item
+# "editor.unfoldHeading" = "Alt+Mod+U"  # Unfold heading or list item
+# "editor.moveLineUp" = "Alt+ArrowUp"  # Move line up
+# "editor.moveLineDown" = "Alt+ArrowDown"  # Move line down
+# "editor.toggleCheckbox" = "Mod+L"  # Toggle checkbox
+# "editor.reflowParagraph" = "Alt+Q"  # Reflow paragraph (macOS: "Ctrl+Q")
+# "editor.linkPopover" = "Shift+Mod+K"  # Open link popover
+# "editor.reviewNextChange" = "Alt+Mod+ArrowDown"  # Next change to review
+# "editor.reviewPreviousChange" = "Alt+Mod+ArrowUp"  # Previous change to review
+# "editor.reviewAcceptChange" = "Shift+Mod+Enter"  # Accept change
+# "editor.reviewRejectChange" = "Shift+Mod+Backspace"  # Reject change
+# "nav.localEx" = ":"  # Open local ex prompt
+# "nav.newQuickNote" = "n"  # New quick note from Quick Notes view
+# "nav.unarchive" = "u"  # Unarchive selected note
+
+# Keys for command palette commands. Add or uncomment "<command.id>" = "<key>".
+# Every command starts unbound. A key is a chord with Ctrl, Alt or Cmd
+# ("Mod+Backspace", "Alt+Mod+T") or a function key ("F5"), or, with Vim
+# mode on, a leader sequence of one to three keys ("Leader x t", which
+# reads as Space x t while Space is the leader). A sequence may not start
+# on a key the built-in leader uses. "" leaves a command with no key.
+[keymaps.commands]
+
+# --- All commands (uncomment + add a key to bind one) ---
+# "note.new.quick" = ""  # Note: New Quick Note
+# "note.new.inbox" = ""  # Note: New Note in Inbox
+# "vault.import" = ""  # Vault: Import Notes…
+# "vault.import-notion" = ""  # Vault: Import from Notion…
+# "vault.import-obsidian" = ""  # Vault: Import from Obsidian…
+# "database.new" = ""  # Note: New Database
+# "database.new.kanban" = ""  # Note: New Kanban
+# "task.new" = ""  # Note: New Task
+# "task.new.folder" = ""  # Note: New Task in Folder…
+# "note.daily.today" = ""  # Note: Open Today's Daily Note
+# "note.daily.rollover" = ""  # Note: Roll Over Unfinished Tasks to Today
+# "note.weekly.thisWeek" = ""  # Note: Open This Week's Note
+# "note.monthly.thisMonth" = ""  # Note: Open This Month's Note
+# "template.create" = ""  # Note: New Note from Template…
+# "template.insert" = ""  # Note: Insert Template into Current Note…
+# "drawing.new" = ""  # Note: New Drawing
+# "embed.drawing.existing" = ""  # Note: Embed Existing Drawing…
+# "embed.drawing.new" = ""  # Note: Embed New Drawing
+# "note.publish" = ""  # Note: Publish Note
+# "template.removeBuiltins" = ""  # Note: Remove Built-in Templates
+# "template.restoreBuiltins" = ""  # Note: Restore Built-in Templates
+# "template.saveCurrent" = ""  # Note: Save Current Note as Template…
+# "note.new.here" = ""  # Note: New Note in Current Folder
+# "note.save" = ""  # Note: Save Note
+# "note.format" = ""  # Note: Format Markdown
+# "note.rename" = ""  # Note: Rename Note…
+# "note.favorite" = ""  # Note: Toggle Note Favorite
+# "note.cover" = ""  # Note: Add or Change Cover…
+# "note.cover.unsplash" = ""  # Note: Add Cover from Unsplash…
+# "note.cover.unsplashKey" = ""  # Note: Set Unsplash Access Key…
+# "note.cover.paste" = ""  # Note: Paste Cover from Clipboard
+# "note.cover.reposition" = ""  # Note: Reposition Cover
+# "note.cover.remove" = ""  # Note: Remove Cover
+# "note.archive" = ""  # Note: Move Note to Archive
+# "note.unarchive" = ""  # Note: Unarchive Note
+# "note.trash" = ""  # Note: Move Note to Trash
+# "note.restore" = ""  # Note: Restore Note from Trash
+# "note.delete-permanently" = ""  # Note: Delete Note Permanently
+# "note.copy-wikilink" = ""  # Note: Copy Note as Wikilink
+# "note.copy-markdown" = ""  # Note: Copy Note as Markdown
+# "note.copy-html" = ""  # Note: Copy Note as HTML (for email)
+# "note.export-pdf" = ""  # Note: Export Note as PDF…
+# "note.export-docx" = ""  # Note: Export Note as Word Document…
+# "note.copy-path" = ""  # Note: Copy Note Path
+# "note.copy-absolute-path" = ""  # Note: Copy Note Absolute Path
+# "folder.copy-path" = ""  # Folder: Copy Current Folder Path
+# "folder.copy-absolute-path" = ""  # Folder: Copy Current Folder Absolute Path
+# "note.reveal" = ""  # Note: Reveal Note in File Manager
+# "note.float" = ""  # Note: Open in Floating Window
+# "note.move" = ""  # Note: Move Note to Folder…
+# "tab.close" = ""  # Tabs: Close Tab
+# "tab.reopen" = ""  # Tabs: Reopen Closed Tab
+# "tab.next" = ""  # Tabs: Next Tab
+# "tab.previous" = ""  # Tabs: Previous Tab
+# "tab.pin" = ""  # Tabs: Pin or Unpin Tab
+# "tab.close-others" = ""  # Tabs: Close Other Tabs in Pane
+# "tab.close-right" = ""  # Tabs: Close Tabs to the Right
+# "tab.menu" = ""  # Tabs: Open Active Tab Menu
+# "tab.buffers" = ""  # Tabs: Open Buffer Switcher…
+# "nav.outline" = ""  # Navigation: Open Note Outline…
+# "view.outline-panel" = ""  # View: Toggle Outline Panel
+# "view.comments-panel" = ""  # View: Toggle Comments Panel
+# "editor.add-comment" = ""  # Editor: Add Comment to Selection
+# "view.calendar-panel" = ""  # View: Toggle Calendar Panel
+# "view.timeline-panel" = ""  # View: Toggle Timeline
+# "view.close-right-panel" = ""  # View: Close Right Panel
+# "view.mode.edit" = ""  # View: Switch to Edit Mode
+# "view.mode.split" = ""  # View: Switch to Split Mode
+# "view.mode.preview" = ""  # View: Switch to Preview Mode
+# "view.zoom.in" = ""  # View: Zoom In
+# "view.zoom.out" = ""  # View: Zoom Out
+# "view.zoom.reset" = ""  # View: Reset Zoom
+# "app.check-updates" = ""  # App: Check for Updates…
+# "app.website" = ""  # App: Open ZenNotes Website
+# "app.discord" = ""  # App: Join ZenNotes Discord
+# "app.github" = ""  # App: Open GitHub Repository
+# "app.release" = ""  # App: View Latest Release
+# "app.whatsNew" = ""  # App: What’s New in ZenNotes
+# "app.hideToTray" = ""  # App: Hide Window to Tray
+# "app.quit" = ""  # App: Quit ZenNotes
+# "app.report-issue" = ""  # App: Report an Issue
+# "fold.heading" = ""  # Editor: Fold Heading or List Item at Cursor
+# "fold.unfold-heading" = ""  # Editor: Unfold Heading or List Item at Cursor
+# "fold.all" = ""  # Editor: Fold All Headings and Lists
+# "fold.unfold-all" = ""  # Editor: Unfold All Headings and Lists
+# "task.forward" = ""  # Editor: Forward Task to Note…
+# "task.start" = ""  # Editor: Mark Task In Progress
+# "task.cancel" = ""  # Editor: Cancel Task
+# "editor.link-popover" = ""  # Editor: Open Link Popover
+# "task.toggle-checkbox" = ""  # Editor: Toggle Checkbox
+# "task.repeat" = ""  # Editor: Repeat Task…
+# "task.remind" = ""  # Editor: Remind Task…
+# "editor.reflow-paragraph" = ""  # Editor: Reflow Paragraph
+# "database.create-record-pages" = ""  # Database: Create Pages for All Records
+# "database.columns" = ""  # Database: Choose Database Columns
+# "database.column-color" = ""  # Database: Set Board Column Color…
+# "database.new-table-view" = ""  # Database: New Table View
+# "database.duplicate-view" = ""  # Database: Duplicate View
+# "database.pick-selected" = ""  # Database: Show Only Selected Rows
+# "database.show-all-rows" = ""  # Database: Show All Rows
+# "table.to-database" = ""  # Editor: Convert Table to Database…
+# "editor.callout-type" = ""  # Editor: Set Callout Type…
+# "editor.remove-callout" = ""  # Editor: Remove Callout
+# "editor.code-language" = ""  # Editor: Set Code Block Language…
+# "editor.copy-link" = ""  # Editor: Copy Link Under Cursor
+# "editor.resize-image" = ""  # Editor: Resize Image…
+# "nav.back" = ""  # Tabs: Go Back
+# "nav.forward" = ""  # Tabs: Go Forward
+# "nav.toggle-recent" = ""  # Tabs: Switch to Previous Note
+# "split.right" = ""  # Panes: Split Right
+# "split.down" = ""  # Panes: Split Down
+# "pane.focus.left" = ""  # Panes: Focus Pane Left
+# "pane.focus.down" = ""  # Panes: Focus Pane Below
+# "pane.focus.up" = ""  # Panes: Focus Pane Above
+# "pane.focus.right" = ""  # Panes: Focus Pane Right
+# "nav.search" = ""  # Go: Search Notes…
+# "nav.search-text" = ""  # Go: Search Text in Vault…
+# "nav.folder.quick" = ""  # Go: Go to Quick Notes
+# "nav.folder.inbox" = ""  # Go: Go to Inbox
+# "nav.folder.archive" = ""  # Go: Go to Archive
+# "nav.folder.trash" = ""  # Go: Go to Trash
+# "nav.assets" = ""  # Go: Go to Files
+# "nav.focus.sidebar" = ""  # Go: Focus Sidebar
+# "nav.focus.editor" = ""  # Go: Focus Editor
+# "view.tasks" = ""  # View: Open Tasks
+# "view.workflows" = ""  # View: Open Workflows
+# "view.atlas" = ""  # View: Open Atlas
+# "view.unresolved-links" = ""  # View: Open Unresolved Links
+# "view.folder-gallery" = ""  # View: Open Folder Gallery
+# "view.tags" = ""  # View: Open Tags
+# "view.toggle.sidebar" = ""  # View: Toggle Sidebar
+# "view.toggle.connections" = ""  # View: Toggle Connections Panel
+# "view.toggle.note-list" = ""  # View: Toggle Note List Column
+# "view.toggle.tags" = ""  # View: Show or Hide Tags in Sidebar
+# "view.content-align" = ""  # View: Toggle Content Alignment
+# "view.sort.name-asc" = ""  # View: Sort Notes: Name (A → Z)
+# "view.sort.name-desc" = ""  # View: Sort Notes: Name (Z → A)
+# "view.sort.updated-desc" = ""  # View: Sort Notes: Updated (Newest First)
+# "view.sort.updated-asc" = ""  # View: Sort Notes: Updated (Oldest First)
+# "view.sort.created-desc" = ""  # View: Sort Notes: Created (Newest First)
+# "view.sort.created-asc" = ""  # View: Sort Notes: Created (Oldest First)
+# "view.sort.manual" = ""  # View: Sort Notes: Manual
+# "view.group-by-kind" = ""  # View: Toggle Grouping Notes by Kind
+# "view.focus-mode" = ""  # View: Toggle Zen Mode
+# "view.dark-sidebar" = ""  # View: Toggle Dark Sidebar
+# "view.status-bar" = ""  # View: Toggle Status Bar
+# "view.line-numbers.off" = ""  # View: Line Numbers: Off
+# "view.line-numbers.absolute" = ""  # View: Line Numbers: Absolute
+# "view.line-numbers.relative" = ""  # View: Line Numbers: Relative
+# "view.kanban-card-sort" = ""  # View: Kanban: Toggle Card Order
+# "view.kanban-lanes.priority" = ""  # View: Kanban: Lanes by Priority
+# "view.kanban-lanes.folder" = ""  # View: Kanban: Lanes by Folder
+# "view.kanban-lanes.tag" = ""  # View: Kanban: Lanes by Tag
+# "view.kanban-lanes.none" = ""  # View: Kanban: Lanes Off
+# "view.hide-empty-tasks" = ""  # View: Tasks: Toggle Empty Tasks
+# "view.tasks-list-order" = ""  # View: Tasks: Toggle List Order
+# "editor.vim.toggle" = ""  # Editor: Toggle Vim Mode
+# "editor.completed-task.none" = ""  # Editor: Completed Tasks: No Style
+# "editor.completed-task.strikethrough" = ""  # Editor: Completed Tasks: Strikethrough
+# "editor.completed-task.gray" = ""  # Editor: Completed Tasks: Gray
+# "editor.completed-task.gray-strikethrough" = ""  # Editor: Completed Tasks: Strikethrough + Gray
+# "editor.which-key.toggle" = ""  # Editor: Toggle Leader Key Hints
+# "editor.live-preview.toggle" = ""  # Editor: Toggle Live Preview
+# "editor.harper.toggle" = ""  # Editor: Toggle Grammar and Spelling with Harper
+# "editor.harper.next" = ""  # Editor: Harper: Next Suggestion
+# "editor.harper.previous" = ""  # Editor: Harper: Previous Suggestion
+# "editor.harper.suggest" = ""  # Editor: Harper: Show Suggestions at Cursor
+# "editor.harper.apply" = ""  # Editor: Harper: Apply First Suggestion
+# "editor.harper.addWord" = ""  # Editor: Harper: Add Word to Dictionary
+# "editor.harper.ignore" = ""  # Editor: Harper: Ignore Suggestion
+# "editor.tabs.toggle" = ""  # Editor: Toggle Tabs
+# "editor.keep-panels.toggle" = ""  # Editor: Toggle Remembering Panels per Note
+# "editor.persist-undo-history.toggle" = ""  # Editor: Toggle Keeping Undo History After Quitting
+# "editor.word-wrap.toggle" = ""  # Editor: Toggle Word Wrap
+# "editor.auto-reveal.toggle" = ""  # Editor: Toggle Auto-Reveal Active Note
+# "editor.quick-note-date.toggle" = ""  # Editor: Toggle Quick Note Date Titles
+# "editor.pdf-embed.compact" = ""  # Editor: PDF Embeds: Compact Card
+# "editor.pdf-embed.full" = ""  # Editor: PDF Embeds: Inline Viewer
+# "ref.pin" = ""  # Reference: Pin Active Note as Reference
+# "ref.unpin" = ""  # Reference: Unpin Reference
+# "ref.toggle" = ""  # Reference: Show or Hide Reference Pane
+# "ref.focus" = ""  # Reference: Focus Reference Pane
+# "ui.themes" = ""  # UI: Themes…
+# "ui.newTheme" = ""  # UI: New Custom Theme…
+# "ui.overrides" = ""  # UI: Overrides…
+# "tag.rename" = ""  # Tag: Rename Tag…
+# "tag.delete" = ""  # Tag: Delete Tag…
+# "demo.generate" = ""  # Demo: Generate Demo Tour Notes
+# "demo.remove" = ""  # Demo: Remove Demo Tour Notes
+# "app.help" = ""  # App: Open Help
+# "app.onboarding.restart" = ""  # App: Show Onboarding Wizard
+# "app.settings" = ""  # App: Open Settings
+# "app.vault.pick" = ""  # Vault: Open Local Vault…
+# "app.vault.openWindow" = ""  # Vault: Open Local Vault in New Window…
+# "app.file.open" = ""  # Vault: Open File…
+# "app.vault.close" = ""  # Vault: Close Current Vault
+# "app.cloud.reviewConflicts" = ""  # Vault: Review Cloud Sync Conflicts
+# "app.cloud.reviewVaultRemoval" = ""  # Vault: Review Cloud Vault
+# "app.vault.switch" = ""  # Vault: Switch Vault…
+# "vault.rename" = ""  # Vault: Rename Vault…
+# "app.workspace.remote" = ""  # Vault: Connect to Remote Vault…
+# "app.workspace.local" = ""  # Vault: Switch to Local Vault
+# "app.assets.reveal" = ""  # Vault: Open Vault in File Manager
+# "cli.check-updates" = ""  # CLI: Check for zn Updates…
+# "cli.install" = ""  # CLI: Install Command-Line Tool (zn)
+# "cli.uninstall" = ""  # CLI: Uninstall Command-Line Tool (zn)
+# "cli.openSettings" = ""  # CLI: Open CLI Settings
+# "workflow.tutorial" = ""  # Workflow: Start Workflows Tutorial
+# "workflow.runPicker" = ""  # Workflow: Run Workflow…
+
+# Display-name overrides for the built-in folders (inbox, quick, archive, trash).
+# Example: inbox = "Notes"
+[folder_labels]
+
+# Kanban column title overrides, keyed by "<groupBy>:<columnId>".
+# Example: "status:todo" = "To Do"
+[kanban_column_titles]
+"status:undated" = "TODO"
+
+# Kanban WIP limits (1 to 999), keyed by "<groupBy>:<columnId>".
+# Example: "status:in-progress" = 3
+[kanban_wip_limits]
+
+# Kanban column colors, keyed by "<groupBy>:<columnId>".
+# gray, red, yellow, green, teal, blue or purple, drawn in the theme's own shades.
+# Example: "status:in-progress" = "blue"
+[kanban_column_colors]
+
+# Enabled CSS overrides. List the filenames you want active.
+# Example: "focus.css" = "on"
+[overrides]
+
+# Visual color tweaks from Settings → Appearance (token slug = color).
+# Example: "accent" = "#ff3b30"
+[tweaks]
+
+# Text replacements expanded while typing, keyed by trigger.
+# Example: "->" = "→"
+[text_replacements]
+"->" = "→"
+
+# Saved Tasks filters: a name you pick = the filter query it stands for.
+# Recall one from the chips above the task list, the command palette,
+# or `:filter <name>` in the Tasks view; `:savefilter <name>` adds one.
+# Example: "Project alpha" = "@project:alpha"
+[saved_filters]
