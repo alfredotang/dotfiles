@@ -155,6 +155,18 @@ function configure_zed {
   success "$title"
 }
 
+# Setting zennotes
+function configure_zennotes {
+  title="configure zennotes"
+  print_step $1 "$title"
+  mkdir -p ~/.config/zennotes
+  [ -e ~/.config/zennotes/config.toml ] && [ ! -L ~/.config/zennotes/config.toml ] && mv ~/.config/zennotes/config.toml ~/.config/zennotes/config.toml.bak
+
+  place macOS/zennotes/config.toml ~/.config/zennotes/config.toml
+
+  success "$title"
+}
+
 # To enable global key-repeat
 # If you're using vim's j k l h as your cursor movement keys
 # not having this setting enabled could be problematic when navigating.
@@ -177,6 +189,7 @@ install_steps+=(
   "configure_neovim"
   "configure_ghostty"
   "configure_zed"
+  "configure_zennotes"
   "disable_macos_press_and_hold"
 )
 
