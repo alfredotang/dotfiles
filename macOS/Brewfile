@@ -48,6 +48,7 @@ cask "bitwarden"
 cask "keyboardcleantool"
 cask "bruno"
 cask "zennotes/tap/zennotes"
+cask "herdr-app"
 mas "LINE", id: 539883307
 mas "Slack", id: 803453959
 mas "Amphetamine", id: 937984704
