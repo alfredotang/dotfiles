@@ -301,3 +301,6 @@ gh_switch_account() {
 #  ---------------
 # | other setting |
 #  ---------------
+
+# bun completions
+[ -s "/Users/alfredotang/.bun/_bun" ] && source "/Users/alfredotang/.bun/_bun"

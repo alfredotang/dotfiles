@@ -500,6 +500,7 @@ usage_count = true  # send an anonymous count when ZenNotes installs or updates:
 # "app.workspace.remote" = ""  # Vault: Connect to Remote Vault…
 # "app.workspace.local" = ""  # Vault: Switch to Local Vault
 # "app.assets.reveal" = ""  # Vault: Open Vault in File Manager
+# "vault.download-folder" = ""  # Vault: Download Vault as a Folder
 # "cli.check-updates" = ""  # CLI: Check for zn Updates…
 # "cli.install" = ""  # CLI: Install Command-Line Tool (zn)
 # "cli.uninstall" = ""  # CLI: Uninstall Command-Line Tool (zn)
