@@ -1,22 +1,20 @@
 return {
   {
-    "Shatur/neovim-ayu",
-    main = "ayu",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      mirage = false, -- true = ayu-mirage; light: ayu-light
+      style = "night",
       -- keep the old transparent background
-      overrides = {
-        Normal = { bg = "None" },
-        NormalNC = { bg = "None" },
-        SignColumn = { bg = "None" },
-        EndOfBuffer = { bg = "None" },
+      transparent = true,
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
       },
     },
   },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "ayu-dark" },
+    opts = { colorscheme = "tokyonight-night" },
   },
 }

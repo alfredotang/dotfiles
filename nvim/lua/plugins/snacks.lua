@@ -10,10 +10,11 @@ return {
         --   ignored = true, -- include .gitignore'd files
         -- },
         -- <leader>/ live grep
-        -- grep = {
-        --   hidden = true,
-        --   ignored = true,
-        -- },
+        grep = {
+          regex = false, -- 純文字搜尋 (rg --fixed-strings)，不用跳脫 { ( [ 等字元
+          -- hidden = true,
+          -- ignored = true,
+        },
         -- <leader>e file explorer
         explorer = {
           hidden = true,
