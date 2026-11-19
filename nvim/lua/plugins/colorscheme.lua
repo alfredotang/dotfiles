@@ -1,14 +1,21 @@
 return {
   {
-    "Shatur/neovim-ayu",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-      mirage = false,
+      style = "night",
+      transparent = true,
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+        sidebars = "transparent",
+        floats = "transparent",
+      },
     },
   },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "ayu-dark" },
+    opts = { colorscheme = "tokyonight-night" },
   },
 }
