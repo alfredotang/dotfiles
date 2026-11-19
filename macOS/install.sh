@@ -100,11 +100,12 @@ function configure_gitconfig {
   success "$title"
 }
 
-# Setting tmux
-function configure_tmux {
-  title="configure tmux"
+# Setting herdr (only config.toml is linked; ~/.config/herdr also holds runtime state)
+function configure_herdr {
+  title="configure herdr"
   print_step $1 "$title"
-  place macOS/.tmux.conf ~/.tmux.conf
+  mkdir -p ~/.config/herdr
+  place macOS/herdr/config.toml ~/.config/herdr/config.toml
 
   success "$title"
 }
@@ -185,7 +186,7 @@ install_steps+=(
   "configure_zsh"
   "configure_starship"
   "configure_gitconfig"
-  "configure_tmux"
+  "configure_herdr"
   "configure_neovim"
   "configure_ghostty"
   "configure_zed"

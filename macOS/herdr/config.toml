@@ -1,0 +1,48 @@
+onboarding = false
+
+[ui.toast]
+delivery = "terminal"
+
+# Mirrors Ghostty's macOS keybinds (cmd+X -> prefix+X); prefix is ctrl+b.
+[keys]
+
+# cmd+t new tab
+new_tab = "prefix+t"
+# cmd+w close pane
+close_pane = "prefix+w"
+# cmd+shift+w close workspace
+close_workspace = "prefix+shift+w"
+# rename workspace
+rename_workspace = "prefix+shift+r"
+# Moved: prefix+shift+r is now rename_workspace
+reload_config = "prefix+shift+y"
+# cmd+d / cmd+shift+d new split right / down
+split_vertical = "prefix+d"
+split_horizontal = "prefix+shift+d"
+# cmd+alt+arrow goto split
+focus_pane_left = ["prefix+left", "prefix+h"]
+focus_pane_down = ["prefix+down", "prefix+j"]
+focus_pane_up = ["prefix+up", "prefix+k"]
+focus_pane_right = ["prefix+right", "prefix+l"]
+# cmd+shift+enter toggle split zoom
+zoom = ["prefix+z"]
+# cmd+[ / cmd+] previous / next pane
+cycle_pane_previous = "prefix+["
+cycle_pane_next = "prefix+]"
+# cmd+k clear screen
+clear_pane = "prefix+ctrl+k"
+
+# cmd+shift+[ / cmd+shift+] previous / next tab
+previous_tab = "prefix+shift+["
+next_tab = "prefix+shift+]"
+# rename tab
+rename_tab = "prefix+r"
+# new workspace
+new_workspace = "prefix+n"
+# go session (goto picker)
+goto = "prefix+p"
+
+# Moved: prefix+w is now close_pane
+workspace_picker = "prefix+shift+o"
+# Moved: prefix+r is now rename_tab
+resize_mode = "prefix+shift+z"

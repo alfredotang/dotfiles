@@ -4,13 +4,14 @@
 [[ -n $_ZSHRC_LOADED && -o interactive ]] && exec zsh
 _ZSHRC_LOADED=1
 
+# autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+
 # nvm
   export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# Turn Report terminal type to xterm-256color
-export TERM='xterm-256color'
 
 # Load the antigen
 source /opt/homebrew/share/antigen/antigen.zsh
@@ -93,6 +94,8 @@ alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 #
 alias pn="pnpm"
 alias b="bun"
+alias k="kubectl"
+alias h="herdr"
 
 # Change Directory
 alias cdt="cd ~/desktop"
@@ -116,21 +119,6 @@ alias cpn="echo '~/Documents/zen-notes' | pbcopy"
 
 # zed
 ZED_ALLOW_ROOT=true
-
-# tmux
-alias t="tmux"
-alias ta="tmux attach -t"
-alias tn="tmux new -s"
-alias tls="tmux ls"
-alias tk="tmux kill-session -t"
-alias tka="tmux kill-server"
-alias tco="tmux_checkout"
-tmux_checkout() {
-  local session
-  session=$(tmux ls 2>/dev/null | fzf --select-1 --exit-0 | cut -d: -f1)
-  [ -n "$session" ] && tmux attach -t "$session"
-}
-
 
 # git
 alias g="git"
