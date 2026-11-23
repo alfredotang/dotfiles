@@ -38,10 +38,6 @@
     "open_ai_compatible_api": {
       "model": "",
     },
-    "copilot": {
-      "enable_next_edit_suggestions": true,
-    },
-    "provider": "copilot",
     "mode": "subtle",
   },
   "active_pane_modifiers": {
