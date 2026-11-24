@@ -71,6 +71,7 @@ ignored_keys = []  # keys the app ignores entirely, by DOM key or code, e.g. ["K
 
 [appearance]
 pdf_export_use_theme = false  # true | false: export PDFs using the current theme instead of a clean light print theme
+pdf_export_font_size = 0  # PDF text size in px (8-32); 0 uses the editor font size
 theme_family = "apple"  # apple | gruvbox | catppuccin | github | solarized | one | nord | tokyo-night | kanagawa | black-metal | custom
 theme_mode = "dark"  # light | dark | auto
 theme_id = "apple-dark"  # resolved theme id; normally set automatically from family + mode
@@ -204,6 +205,7 @@ usage_count = true  # send an anonymous count when ZenNotes installs or updates:
 # "vim.leaderNoteCoverUnsplash" = "u"  # Leader note action: cover from Unsplash
 # "vim.leaderCalloutType" = "a"  # Leader note action: callout type
 # "vim.leaderCodeLanguage" = "l"  # Leader note action: code block language
+# "vim.leaderCopyPdfLink" = "P"  # Leader: copy link to PDF location
 # "vim.leaderQuickCapture" = "q"  # Leader: open quick capture
 # "vim.leaderHideToTray" = "b"  # Leader: hide window to tray
 # "vim.leaderTemplatePicker" = "t"  # Leader: new from template
@@ -478,6 +480,7 @@ usage_count = true  # send an anonymous count when ZenNotes installs or updates:
 # "ref.pin" = ""  # Reference: Pin Active Note as Reference
 # "ref.unpin" = ""  # Reference: Unpin Reference
 # "ref.toggle" = ""  # Reference: Show or Hide Reference Pane
+# "pdf.copy-location-link" = ""  # Reference: Copy Link to PDF Location
 # "ref.focus" = ""  # Reference: Focus Reference Pane
 # "ui.themes" = ""  # UI: Themes…
 # "ui.newTheme" = ""  # UI: New Custom Theme…

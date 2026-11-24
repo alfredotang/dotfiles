@@ -142,6 +142,18 @@ function configure_ghostty {
   success "$title"
 }
 
+# Setting rex (only init.lua is linked)
+function configure_rex {
+  title="configure rex"
+  print_step $1 "$title"
+  mkdir -p ~/.config/rex
+  [ -e ~/.config/rex/init.lua ] && [ ! -L ~/.config/rex/init.lua ] && mv ~/.config/rex/init.lua ~/.config/rex/init.lua.bak
+
+  place macOS/rex/init.lua ~/.config/rex/init.lua
+
+  success "$title"
+}
+
 # Setting zed
 function configure_zed {
   title="configure zed"
@@ -189,6 +201,7 @@ install_steps+=(
   "configure_herdr"
   "configure_neovim"
   "configure_ghostty"
+  "configure_rex"
   "configure_zed"
   "configure_zennotes"
   "disable_macos_press_and_hold"
